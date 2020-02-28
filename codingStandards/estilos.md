@@ -4,6 +4,7 @@ En este documento se presentan las reglas de estilo que deben seguir todos los d
 
 ## Tabla de contenidos
 * [Archivos PHP](#archivos-php)
+* [Nombramiento](#nombramiento)
 * [Utilización de operadores](#utilización-de-operadores)
 * [Variables](#variables)
 * [Constantes](#constantes)
@@ -22,25 +23,29 @@ En este documento se presentan las reglas de estilo que deben seguir todos los d
 
 Todos los archivos con extensión `.php` deben comenzar con el tag `<?php` y ***NUNCA*** se debe combinar diferentes lenguajes de programación en un solo archivo (por ejemplo, en un documento `.html` no debe haber código PHP).
 
+## Nombramiento
+
+Las variables, clases, funciones, etc deberán nombrarse en **inglés** y de manera clara que permita identificar cual es la función de cada elemento. 
+
 ## Utilización de operadores
 
-Al realizar asignaciones de variables, operaciones matemáticas o cualquier otro proceso que requiera utilizar operadores se debe dejar un espacio entre las variables o números y el operador. A continuación se muestran algunos ejemplos de esto:
+Al realizar asignaciones de variables, operaciones matemáticas o cualquier otro proceso que requiera utilizar operadores se debe dejar un espacio entre las variables o números y el operador. A continuación, se muestran algunos ejemplos de esto:
 
 ```php
 $num1 = 15;
 $num2 = 30;
-$suma = $num1 + num2;
-$bool = ($num1 >= $num2) && ($suma < 100);
+$sum = $num1 + num2;
+$bool = ($num1 >= $num2) && ($sum < 100);
 ```
 
 ## Variables
 
 El nombre de las variables debe ser claro y debe dar a entender cual es su objetivo, además debe utilizar camel case y debe comenzar con letra minúscula.
 
-Por ejemplo, para declarar una variable que tenga como objetivo llevar cuenta de las personas que están al interior de un resinto:
+Por ejemplo, para declarar una variable que tenga como objetivo llevar cuenta de las personas que están al interior de un recinto:
 
 ```php 
-$numPersonas = 10;
+$numPeople = 10;
 ```
 
 ## Constantes
@@ -48,16 +53,16 @@ $numPersonas = 10;
 para declarar una constante en el proyecto debe nombrarse en mayúscula sostenida como se muestra a continuación:
 
 ```php
-const CONSTANTE = valorConstante
+const CONSTANT = valorConstante
 ```
 
 ## Ciclos
 
-A continuación se presenta la estructura básica que deben seguir los ciclos.
+A continuación, se presenta la estructura básica que deben seguir los ciclos.
 
 ### Ciclos for
 
-Los ciclos for deben seguir la siguiente estructura, donde despues de la palabra reservada `for` se deja un espacio, al igual que después de cada punto y coma y después de cerrar el paréntesis:
+Los ciclos for deben seguir la siguiente estructura, donde después de la palabra reservada `for` se deja un espacio, al igual que después de cada punto y coma y después de cerrar el paréntesis:
 
 ```php
 for (inicialización; condición; incremento) {
@@ -86,11 +91,11 @@ while (condición) {
 Por ejemplo, para hacer un ciclo que cuente el número de personas hasta llegar a 50:
 
 ```php
-$numPersonas = 0;
+$numPeople = 0;
 
-while ($numPersonas < 50) {
-    $numPersonas++;
-    echo "Actualmente hay $numPersonas personas";
+while ($numPeople < 50) {
+    $numPeople++;
+    echo "Actualmente hay $numPeople personas";
 }
 ```
 
@@ -106,13 +111,13 @@ while (condición);
 Ejemplo:
 
 ```php
-$contador = 0;
+$counter = 0;
 
 do {
-    echo "Valor del contador do while: $contador" . "\n";
-    ++$contador;
+    echo "Valor del contador do while: $counter";
+    ++$counter;
 }
-while ($contador <= 10);
+while ($counter <= 10);
 ```
 
 ## Ciclos for each
@@ -126,10 +131,10 @@ foreach (arreglo as valor) {
 Ejemplo:
 
 ```php
-$arreglo = array(1, 2, 3, 4, 5);
+$array = array(1, 2, 3, 4, 5);
 
-foreach ($arreglo as $valor) {
-    echo $valor;
+foreach ($array as $value) {
+    echo $value;
 } 
 ```
 
@@ -176,10 +181,10 @@ switch (expresión) {
 
 ## Clases
 
-El nombre de las clases debe comenzar con una mayúscula y debe utilizar camel case, siguendo la estructura:
+El nombre de las clases debe comenzar con una mayúscula y debe utilizar camel case, siguiendo la estructura:
 
 ```php
-class NombreClase {
+class ClassName {
     // contenido de la clase
 }
 ```
@@ -189,7 +194,7 @@ class NombreClase {
 Las funciones deben ser nombradas utilizando camel case y **NO** deben comenzar con letra mayúscula.
 
 ```php
-function nombreFuncion() {
+function functionName() {
     // código a ejecutar
 }
 ```
@@ -197,8 +202,8 @@ function nombreFuncion() {
 Un ejemplo de una función que reciba como argumentos 2 números y los sume:
 
 ```php
-function suma($num1, $num2) {
-    $suma = $num1 + $num2;
-    return $suma;
+function sum($num1, $num2) {
+    $sum = $num1 + $num2;
+    return $sum;
 }
 ```
