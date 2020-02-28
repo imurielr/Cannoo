@@ -8,6 +8,7 @@ Todo desarrollador debe cumplir con estos requisitos.
 * [Controladores](#controladores)
 * [Modelos](#modelos)
 * [Vistas](#vistas)
+* [Textos en las vistas](#textos-en-las-vistas)
 * [Documentos de estilo](#documentos-de-estilo)
 * [Rutas](#rutas)
 
@@ -115,6 +116,31 @@ Todo desarrollador debe cumplir con estos requisitos.
 4) Todas las vistas deben ser ```Blade```.
 5) **NUNCA** utilice código php al interior de las vistas.
 6) El nombramiento de las vistas debe seguir la estructura ```nombreVista.blade.php``` 
+
+## Textos en las vistas
+
+### Reglas
+
+1) Todos los textos del proyecto deben ir en ```resources/lang/*```
+2) Inicialmente se utilizarán dos idiomas: español e inglés, los textos de cada uno debe ir en ```resources/lang/es``` y ```resources/lang/en``` respectivamente.
+3) Para acceder a los textos desde las vistas se utilizará la siguiente estructura:
+
+    ```php
+    @lang('messages.welcome');
+    ```
+
+    Donde en ```resources/lang/es/messages.php``` se encuentra la siguiente estructura:
+
+    ```php
+    <?php
+        return [
+            'welcome' => 'Bienvenido',
+            // ... Textos
+        ];
+    ?>
+    ```
+
+**NOTA:** Si es necesario se pueden crear diferentes archivos para contener los textos de cada vista.
 
 ## Documentos de estilo
 
