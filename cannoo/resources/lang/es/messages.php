@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 <?php 
 
     return [
+        'welcome' => 'Bienvenido a Canoo',
+        'welcome_sub' => 'Conoce nuestras mascotas y añade un nuevo amigo a tu familia!',
         'create' => 'Crear',
         'createProduct' => 'Crear Producto',
         'products' => 'Productos',
@@ -16,13 +17,3 @@
         'deleteProduct' => 'Eliminar Producto',
         'updateDescription' => 'Actualizar Descripción',
     ];
-=======
-<?php
-
-return [
-    'welcome' => 'Bienvenido a Canoo',
-    'welcome_sub' => 'Conoce nuestras mascotas y añade un nuevo amigo a tu familia!',
-
-];
-?>
->>>>>>> 52a32efa47bba44346eb9960db149cef35238a6e
