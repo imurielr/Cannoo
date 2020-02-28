@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">¡Bienvenido a Cannoo!</div>
+                <div class="card-header"> @lang('messages.welcome') </div>
 
                 <div class="card-body">
-                    Conoce nuestras mascotas y añade un nuevo amigo a tu familia!
+                    @lang('messages.welcome_sub') 
                 </div>
             </div>
         </div>
