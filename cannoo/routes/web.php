@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/index', 'HomeController@index')->name("home.index");
+Route::get('/certificate/show/{id}', 'CertificateController@get')->name("certificate.show");
