@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,3 +24,7 @@ Route::get('/product/show/{id}', 'ProductController@showProduct')->name("product
 Route::get('/product/delete/{id}', 'ProductController@delete')->name("product.delete");
 Route::get('/product/updateDescription/{id}', 'ProductController@changeDescription')->name("product.update");
 Route::post('/product/update/{id}', 'ProductController@update')->name("product.updateDescription");
+=======
+Route::get('/index', 'HomeController@index')->name("home.index");
+Route::get('/certificate/show/{id}', 'CertificateController@get')->name("certificate.show");
+>>>>>>> 52a32efa47bba44346eb9960db149cef35238a6e
