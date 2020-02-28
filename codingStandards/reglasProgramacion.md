@@ -18,7 +18,7 @@ Todo desarrollador debe cumplir con estos requisitos.
 ```php
 <?php
 
-    namespace App\Http\Controllers\NombreController;
+    namespace App\Http\Controllers\NameController;
 
     class NameController extends Controller {
         // Funciones del controlador
