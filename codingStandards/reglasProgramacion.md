@@ -11,6 +11,7 @@ Todo desarrollador debe cumplir con estos requisitos.
 * [Textos en las vistas](#textos-en-las-vistas)
 * [Documentos de estilo](#documentos-de-estilo)
 * [Rutas](#rutas)
+* [Generación de automática datos](#generacion-de-automatica-datos) 
 
 ## Controladores
 
@@ -163,3 +164,69 @@ Route::get('/index', 'Controller@index')->name("controller.index");
 2) **Toda** ruta debe estar asociada a un controlador.
 3) A cada ruta se le debe asociar un nombre por el que podrá ser accedida.
 4) Está **prohibido** establecer funciones al interior de una ruta. Estas deben ser manejadas por el controlador.
+
+## Generación de automática datos
+
+### Reglas
+
+1) Para la creación de tablas en la base de datos se deberá utilizar Migrations para la generación automática de estas. 
+2) Cada migration deberá ubicarse en ```database/migrations```
+3) El nombre de cada migration deberá hacer referencia a la fecha de creación de la tabla y debe seguir la estructura ```2020_02_21_000000_table_to_be_created.php```
+4) Se exportarán los datos de ejemplo que se ingresen a las tablas en un archivo ```.sql``` que se almacenara en el directorio raíz del proyecto con el fin de que todos los desarrolladores cuenten con la misma información en la base de datos.
+5) El nombre del ```.sql``` generado debe especificar a que tabla de la base de datos pertenece.
+
+### Instrucciones
+
+Para crear la tabla ejecute el comando
+
+```bash
+$ php artisan migrate
+```
+
+**NOTA:** Antes asegúrese de configurar el archivo ```.env```
+
+Una vez creada la tabla se ingresarán manualmente datos de ejemplo, para esto hay varias alternativas:
+
+- ### Utilizando phpMyAdmin
+
+    1) Ingrese a ```http://localhost/phpmyadmin/```.
+    2) Seleccione la base de datos ```cannoodb```. 
+    3) Ingrese a la tabla que acaba de crear y presione el botón ```Insertar``` en la parte superior de la pantalla.
+    4) Ingrese todos los datos y guarde los cambios.
+
+    Para exportar los datos presione el botón ```Exportar```, seleccione formato SQL e ingrese el nombre que desea para el archivo.
+
+    Para importar los datos seleccione la tabla en la que los quiere almacenar, presione el botón ```Importar``` y seleccione el archivo ```.sql``` correspondiente a la tabla.
+
+- ### Utilizando MySQL localmente
+
+    1) Conectese a la base de datos ejecutando el siguiente comando reemplazando *username* por un usuario con acceso a mysql e ingrese la contraseña.
+
+        ```bash
+        $ mysql -u <username> -p
+        ```
+    2) Seleccione la base de datos ```cannoodb```.
+
+        ```sql
+        mysql> USE cannoodb 
+        ```
+    3) Inserte los datos utilizando una query ```INSERT```.
+
+    Para exportar los datos ejecute el comando en la terminal (por fuera de mysql)
+
+    ```bash
+    $ mysqldump -u <username> -p cannoodb <tableName> > tableName.sql
+    ```
+
+    Para importar los datos ingrese a mysql y ejecute los siguientes comandos:
+
+    ```sql
+    mysql> USE cannoodb
+    mysql> IMPORT TABLE FROM <tableName.sql>
+    ```
+
+- ### Desde la aplicación
+
+    Ingrese los datos manualmente desde la aplicación, por ejemplo, si desea almacenar productos de ejemplo ingrese a la página de creación de productos y creelos.
+
+    Para importar y exportar siga las instrucciones de una de la dos opciones anteriores.
