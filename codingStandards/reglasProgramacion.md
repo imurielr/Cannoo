@@ -84,6 +84,16 @@ Todo desarrollador debe cumplir con estos requisitos.
         }
     ?>
     ```
+5) Para acceder a los atributos de un modelo **SIEMPRE** se debe hacer utilizando encapsulamiento, es decir se debe hacer uso de los getters y setters. **NUNCA** se debe acceder directamente al atributo de un modelo. Es decir, para acceder al nombre de un usuario se debe hacer de la siguiente forma:
+
+    ```php
+    echo "Esto SI se debe hacer " . User->getName();
+    ```
+    Pero **NUNCA** de esta manera:
+
+    ```php
+    echo "Esto NO se debe hacer " . User["name"];
+    ```
 
 ## Vistas
 
