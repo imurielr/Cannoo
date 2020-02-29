@@ -1,19 +1,31 @@
 <?php 
 
     return [
+        'accept' => 'Accept',
         'welcome' => 'Welcome to Canoo',
         'welcome_sub' => 'Meet all of our pets and bring a new friend to your home!',
         'create' => 'Create',
         'createProduct' => 'Create product',
         'products' => 'Products',
+        'name_form' => 'Enter name',
         'type_form' => 'Enter type',
         'price_form' => 'Enter price',
+        'phone_form' => 'Enter phone',
+        'address_form' => 'Enter address',
         'description_form' => 'Enter a description',
         'send' => 'send',
+        'name' => 'Name',
+        'address' => 'Address',
+        'phone' => 'Phone',
         'product' => 'Producto',
         'price' => 'Price',
+        'details' => 'Details',
         'description' => 'Description',
         'changeDescription' => 'Change Description',
         'deleteProduct' => 'Delete Product',
         'updateDescription' => 'Upate Description',
+        'newClient' => 'New Client',
+        'showClients' => 'Show Clients',
+        'clientCreated' => 'Client created succesfully',
+        'deleteClient' => 'Delete Clients'
     ];
