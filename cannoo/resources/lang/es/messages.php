@@ -1,19 +1,31 @@
 <?php 
 
     return [
+        'accept' => 'Aceptar',
         'welcome' => 'Bienvenido a Canoo',
-        'welcome_sub' => 'Conoce nuestras mascotas y añade un nuevo amigo a tu familia!',
+        'welcome_sub' => '¡Conoce nuestras mascotas y añade un nuevo amigo a tu familia!',
         'create' => 'Crear',
         'createProduct' => 'Crear Producto',
         'products' => 'Productos',
+        'name_form' => 'Ingresar nombre',
         'type_form' => 'Ingresar tipo',
         'price_form' => 'Ingresar precio',
+        'phone_form' => 'Ingresar teléfono',
+        'address_form' => 'Ingresar dirección',
         'description_form' => 'Ingresar descripción',
         'send' => 'Enviar',
+        'name' => 'Nombre',
+        'address' => 'Dirección',
+        'phone' => 'Teléfono',
         'product' => 'Producto',
         'price' => 'Precio',
+        'details' => 'Detalles',
         'description' => 'Descripción',
         'changeDescription' => 'Modificar Descripción',
         'deleteProduct' => 'Eliminar Producto',
         'updateDescription' => 'Actualizar Descripción',
+        'newClient' => 'Nuevo Cliente',
+        'showClients' => 'Mostrar Clientes',
+        'clientCreated' => 'Cliente creado con éxtio',
+        'deleteClient' => 'Eliminar Cliente'
     ];

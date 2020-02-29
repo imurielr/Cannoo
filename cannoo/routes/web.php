@@ -21,3 +21,9 @@ Route::get('/product/delete/{id}', 'ProductController@delete')->name("product.de
 Route::get('/product/updateDescription/{id}', 'ProductController@changeDescription')->name("product.update");
 Route::post('/product/update/{id}', 'ProductController@update')->name("product.updateDescription");
 Route::get('/certificate/show/{id}', 'CertificateController@get')->name("certificate.show");
+Route::get('/client', 'ClientController@index')->name("client.index");
+Route::get('/client/create', 'ClientController@create')->name("client.create");
+Route::post('/client/save', 'ClientController@save')->name("client.save");
+Route::get('/client/show', 'ClientController@showAll')->name("client.show");
+Route::get('/client/show/{id}', 'ClientController@showClient')->name("client.showClient");
+Route::get('/client/delete/{id}', 'ClientController@delete')->name("client.delete");
