@@ -4,48 +4,39 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
-{
+class Client extends Model{
     //attributes id, name, phone, address, certificates, orders, created_at, updated_at
     protected $fillable = ['name','phone','address'];
 
-    public function getId()
-    {
+    public function getId(){
         return $this->attributes['id'];
     }
 
-    public function setId($id)
-    {
+    public function setId($id){
         $this->attributes['id'] = $id;
     }
 
-    public function getName()
-    {
+    public function getName(){
         return $this->attributes['name'];
     }
 
-    public function setName($name)
-    {
+    public function setName($name){
         $this->attributes['name'] = $name;
     }
 
-    public function getPhone()
-    {
+    public function getPhone(){
         return $this->attributes['phone'];
     }
 
-    public function setPhone($phone)
-    {
+    public function setPhone($phone){
         $this->attributes['phone'] = $phone;
     }
 
-    public function getAddress()
-    {
+    public function getAddress(){
         return $this->attributes['address'];
     }
 
-    public function setAddress($address)
-    {
+    public function setAddress($address){
         $this->attributes['address'] = $address;
     }
 
