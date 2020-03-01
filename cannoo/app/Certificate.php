@@ -24,6 +24,10 @@ class Certificate extends Model {
         $this->attributes['client'] = $client;
     }
 
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+
     public function getAnimal() {
         return $this->attributes['animal'];
     }
@@ -31,6 +35,10 @@ class Certificate extends Model {
     public function setAnimal($animal) {
         $this->attributes['animal'] = $animal;
     }
+
+    /*public function animal(){
+        return $this->belongsTo(Animal::class);
+    }*/
 
     public function getDate() {
         return $this->attributes['date'];

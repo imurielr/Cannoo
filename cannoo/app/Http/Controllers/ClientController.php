@@ -6,20 +6,16 @@ use App\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ClientController extends Controller
-{
-    public function index()
-    {
+class ClientController extends Controller{
+    public function index(){
         return view('client.index');
     }
 
-    public function create()
-    {
+    public function create(){
         return view('client.create');
     }
 
-    public function showAll()
-    {
+    public function showAll(){
         $clients = DB::table('clients')->get()->sortby('id');
         return view('client.show', ['clients' => $clients]);
     }
@@ -42,10 +38,9 @@ class ClientController extends Controller
     }
 
     
-    public function delete($id)
-    {
+    public function delete($id){
         DB::table('clients')->where('id', $id)->delete();
-        return $this->show();
+        return $this->showAll();
     }
 
 }

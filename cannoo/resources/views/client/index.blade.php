@@ -8,7 +8,7 @@
                 @lang('messages.newClient')
             </a>
             <a class="btn btn-info" href="{{ route('client.show') }}">
-                @lang('messages.showClient')
+                @lang('messages.showClients')
             </a>
         </div>
     </div>
