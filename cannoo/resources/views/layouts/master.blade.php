@@ -12,10 +12,27 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <img src="{{ asset('images/logo.png') }}" style="height:100px;"> 
+                <a href="{{ route('home.index') }}">
+                    <img src="{{ asset('images/logo.png') }}" style="height:100px;">  
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.products')</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('product.show') }}">@lang('messages.showProducts')</a>
+                    <a class="dropdown-item" href="{{ route('product.create') }}">@lang('messages.createProduct')</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.clients')</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('client.show') }}">@lang('messages.showClients')</a>
+                    <a class="dropdown-item" href="{{ route('client.create') }}">@lang('messages.newClient')</a>
+                </li>
             </div>
         </nav>
 

@@ -40,7 +40,7 @@ class ClientController extends Controller{
     
     public function delete($id){
         DB::table('clients')->where('id', $id)->delete();
-        return $this->show();
+        return $this->showAll();
     }
 
 }

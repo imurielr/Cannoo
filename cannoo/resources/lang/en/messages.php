@@ -2,11 +2,12 @@
 
     return [
         'accept' => 'Accept',
-        'welcome' => 'Welcome to Canoo',
+        'welcome' => 'Welcome to Cannoo',
         'welcome_sub' => 'Meet all of our pets and bring a new friend to your home!',
         'create' => 'Create',
         'createProduct' => 'Create product',
         'products' => 'Products',
+        'showProducts' => 'View products',
         'name_form' => 'Enter name',
         'type_form' => 'Enter type',
         'price_form' => 'Enter price',
@@ -24,8 +25,9 @@
         'changeDescription' => 'Change Description',
         'deleteProduct' => 'Delete Product',
         'updateDescription' => 'Upate Description',
-        'newClient' => 'New Client',
-        'showClients' => 'Show Clients',
+        'clients' => 'Clients',
+        'newClient' => 'New client',
+        'showClients' => 'Show clients',
         'clientCreated' => 'Client created succesfully',
-        'deleteClient' => 'Delete Clients'
+        'deleteClient' => 'Delete clients'
     ];

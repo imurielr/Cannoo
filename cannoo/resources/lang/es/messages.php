@@ -2,11 +2,12 @@
 
     return [
         'accept' => 'Aceptar',
-        'welcome' => 'Bienvenido a Canoo',
+        'welcome' => 'Bienvenido a Cannoo',
         'welcome_sub' => '¡Conoce nuestras mascotas y añade un nuevo amigo a tu familia!',
         'create' => 'Crear',
-        'createProduct' => 'Crear Producto',
+        'createProduct' => 'Crear producto',
         'products' => 'Productos',
+        'showProducts' => 'Ver productos',
         'name_form' => 'Ingresar nombre',
         'type_form' => 'Ingresar tipo',
         'price_form' => 'Ingresar precio',
@@ -21,11 +22,12 @@
         'price' => 'Precio',
         'details' => 'Detalles',
         'description' => 'Descripción',
-        'changeDescription' => 'Modificar Descripción',
-        'deleteProduct' => 'Eliminar Producto',
-        'updateDescription' => 'Actualizar Descripción',
-        'newClient' => 'Nuevo Cliente',
-        'showClients' => 'Mostrar Clientes',
+        'changeDescription' => 'Modificar descripción',
+        'deleteProduct' => 'Eliminar producto',
+        'updateDescription' => 'Actualizar descripción',
+        'clients' => 'Clientes',
+        'newClient' => 'Nuevo cliente',
+        'showClients' => 'Ver clientes',
         'clientCreated' => 'Cliente creado con éxtio',
-        'deleteClient' => 'Eliminar Cliente'
+        'deleteClient' => 'Eliminar cliente'
     ];
