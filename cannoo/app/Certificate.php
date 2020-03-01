@@ -59,11 +59,11 @@ class Certificate extends Model {
 
     public static function validate(Request $request) {
         $request->validate([
-            "id" => "required",
-            "client" => "required",
-            "animal" => "required",
+            "animal" => "required | numeric | gt:0",
+            "client" => "required | numeric | gt:0",
             "date" => "required"
         ]);
+        $request["verified"]=(bool)$request["verified"];
     }
 }
 ?>

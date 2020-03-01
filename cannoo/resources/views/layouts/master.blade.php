@@ -33,6 +33,18 @@
                     <a class="dropdown-item" href="{{ route('client.show') }}">@lang('messages.showClients')</a>
                     <a class="dropdown-item" href="{{ route('client.create') }}">@lang('messages.newClient')</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.certificates')</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('certificate.show') }}">@lang('messages.showCert')</a>
+                    <a class="dropdown-item" href="{{ route('certificate.create') }}">@lang('messages.createCert')</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.pets')</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('pets.show') }}">@lang('messages.showPets')</a>
+                    <a class="dropdown-item" href="{{ route('pets.create') }}">@lang('messages.addPet')</a>
+                </li>
             </div>
         </nav>
 
