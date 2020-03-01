@@ -6,9 +6,22 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"> @lang('messages.welcome') </div>
-
                 <div class="card-body">
                     @lang('messages.welcome_sub') 
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-header"> @lang('messages.welcome_animal') </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-info">@lang('messages.adoptNow')</button>
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-header"> @lang('messages.welcome_product') </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-info">@lang('messages.buyNow')</button>
                 </div>
             </div>
         </div>
