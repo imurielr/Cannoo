@@ -30,7 +30,7 @@ class ClientController extends Controller{
         //Client::validate($request);
         $request->validate([
             "name" => "required",
-            "phone" => "required|numeric|gt:0",
+            "phone" => "required",
             "address" => "required"
         ]);
         Client::create($request->only(["name","phone","address"]));
