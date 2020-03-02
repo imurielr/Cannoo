@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <ul id="errors">
                         @foreach($data["products"] as $index => $product)
-                        <a style="color:black;" href="{{ url('product/show/'.$product->getId()) }}">
+                        <a style="color:black;" href="{{ route('product.showProduct', $product -> id)  }}">
                             <li> 
                                 <b>Id: </b> {{ $product->getId() }} <br/>
                                 <b>@lang('messages.product'): </b> {{ $product->getType() }}

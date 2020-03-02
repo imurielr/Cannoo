@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-header">{{ $data["product"]->getType() }}</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('product/update/' . $data['product']->getId()) }}">
+                        <form method="POST" action="{{ route('product.updateDescription', $data['product'] -> id) }}">
                             @csrf
                             <input type="text" placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}" />
                             <input type="submit" value="@lang('messages.updateDescription')" />

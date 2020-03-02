@@ -12,7 +12,8 @@
 */
 
 
-Route::get('/index', 'HomeController@index')->name("home.index");
+Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/home', 'HomeController@index')->name('home.index');
 Route::get('/product/create', 'ProductController@create')->name("product.create");
 Route::post('/product/save', 'ProductController@save')->name("product.save");
 Route::get('/product/show', 'ProductController@show')->name("product.show");
@@ -34,3 +35,5 @@ Route::get('/pets/create', 'PetsController@create')->name("pets.create");
 Route::post('/pets/save', 'PetsController@save')->name("pets.save");
 Route::get('/pets/pet/{id}', 'PetsController@pet')->name("pets.pet");
 Route::get('/pets/erase/{id}', 'PetsController@erase')->name("pets.erase");
+
+Auth::routes();

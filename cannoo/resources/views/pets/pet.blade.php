@@ -19,7 +19,7 @@
                     @else
                     <b>@lang('messages.vaccinated'):</b> @lang('messages.no')<br />
                     @endif 
-                    <a href="{{ url('product/erase/'.$data['pet']->getId()) }}">
+                    <a href="{{ route('pets.erase', $data['pet'] -> id) }}">
                     <button>@lang('messages.deletePet')</button>
                     </a>
                 </div>
