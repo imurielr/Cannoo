@@ -1,6 +1,22 @@
 <?php 
 
     return [
+        'login' => 'Login',
+        'register' => 'Register',
+        'logout' => 'Logout',
+        'confirm_pswd' => 'Confirm Password',
+        'ask_confirm' => 'Please confirm your password before continuing.',
+        'password' => 'Password',
+        'forgot_pswd' => 'Forgot Your Password?',
+        'reset_pswd' => 'Reset Password',
+        'email_address' => 'E-Mail Address',
+        'verify_email' => 'Verify Your Email Address',
+        'send_link' => 'Send Password Reset Link',
+        'link_sent' => 'A fresh verification link has been sent to your email address.',
+        'check_email' => 'Before proceeding, please check your email for a verification link.',
+        'notEmail' => 'If you did not receive the email,',
+        'request_email' => 'click here to request another',
+        'rememberMe' => 'Remember Me',
         'pets' => 'Pets',
         'showPets' => 'Show Pets',
         'addPet' => 'Create Pet',

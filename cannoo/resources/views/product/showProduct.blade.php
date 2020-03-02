@@ -16,11 +16,11 @@
                             <b>@lang('messages.description'): </b> {{ $data["product"]->getDescription() }}
                         </ul>
 
-                        <form  action="{{ url('product/delete/'.$data['product']->getId()) }}">
+                        <form  action="{{ route('product.delete', $data['product'] -> id) }}">
                             <input class="float-right" type="submit" value="@lang('messages.deleteProduct')"/>
                         </form>
 
-                        <form  action="{{ url('product/updateDescription/'.$data['product']->getId()) }}">
+                        <form  action="{{ route('product.update', $data['product'] -> id) }}">
                             <input class="float-right" type="submit" value="@lang('messages.changeDescription')" style="margin-right:5px;"/>
                         </form>
 

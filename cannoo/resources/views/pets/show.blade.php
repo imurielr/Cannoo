@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">{{ $pet->getName() }}</div>
                 <div class="card-body">
-                <a href="{{url('pets/pet/'.$pet->getId())}}"> @lang('messages.more_pet') {{ $pet->getId() }}</a>
+                <a href="{{route('pets.pet', $pet -> id) }}"> @lang('messages.more_pet') {{ $pet->getId() }}</a>
                 </div>
             </div>
             <br />

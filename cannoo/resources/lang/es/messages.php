@@ -1,6 +1,22 @@
 <?php 
 
     return [
+        'login' => 'Iniciar Sesión',
+        'register' => 'Registrarse',
+        'logout' => 'Cerrar Sesión',
+        'confirm_pswd' => 'Verificar Contraseña',
+        'ask_confirm' => 'Porfavor verifique su contraseña antes de continuar.',
+        'password' => 'Contraseña',
+        'forgot_pswd' => '¿Olvidó su contraseña?',
+        'reset_pswd' => 'Restaurar Contraseña',
+        'email_address' => 'Correo electrónico',
+        'verify_email' => 'Verifique su correo electrónico',
+        'send_link' => 'Enviar Link Para Restaurar Contraseña',
+        'link_sent' => 'Un nuevo link de verificación ha sido enviado a su correo electrónico.',
+        'check_email' => 'Antes de continuar, porfavor verifique su correo electrónico para el link de verificación.',
+        'notEmail' => 'Si no recibió el correo electrónico,',
+        'request_email' => 'presione aquí para solicitar otro',
+        'rememberMe' => 'Recordarme',
         'pets' => 'Mascotas',
         'showPets' => 'Ver Mascotas',
         'addPet' => 'Crear Mascota',
