@@ -15,12 +15,12 @@ class OrderController extends Controller{
     }
 
     public function addAnimal($id){
-        //Ir a listar animales para agregar a la orden
+        //Agregar Animal a la orden
         return view('pets.show');
     }
 
     public function addItem($id){
-        //Ir a listar productos para agregar a la orden
+        //Agregar Item a la orden
         return view('product.show');
     }
 

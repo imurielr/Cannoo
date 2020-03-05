@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
-
 <div class="container">
     <table class="table table-hover">
         <thead>
@@ -20,7 +18,7 @@
             @endforeach
         </tbody>
     </table>
-    <a class="btn btn-info" href="{{ route('order.addAnimal' }}">@lang('messages.addAnimals')</a>
+    <a class="btn btn-info" href="{{ route('pets.show') }}">@lang('messages.addAnimals')</a>
 </div>
 
 <br>
@@ -45,7 +43,7 @@
             @endforeach
         </tbody>
     </table>
-    <a class="btn btn-info" href="{{ route('order.addItem' }}">@lang('messages.addProducts')</a>
+    <a class="btn btn-info" href="{{ route('product.show') }}">@lang('messages.addProducts')</a>
 </div>
 
 <br>
@@ -57,6 +55,8 @@
     <option>Visa</option>
     <option>MasterCard</option>
     </select>
+    <br>
+    <a class="btn btn-info" href="">@lang('messages.continue')</a>
 </div>
 
 @endsection

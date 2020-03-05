@@ -36,10 +36,10 @@ Route::post('/pets/save', 'PetsController@save')->name("pets.save");
 Route::get('/pets/pet/{id}', 'PetsController@pet')->name("pets.pet");
 Route::get('/pets/erase/{id}', 'PetsController@erase')->name("pets.erase");
 Route::get('/order', 'OrderController@index')->name("order.index");
-Route::get('/order/deleteAnimal/{id]', 'OrderController@deleteAnimal')->name("order.deleteAnimal");
-Route::get('/order/deleteItem/{id]', 'OrderController@deleteItem')->name("order.deleteItem");
-Route::get('/order/deleteItem/{id]', 'OrderController@addAnimal')->name("order.addAnimal");
-Route::get('/order/deleteItem/{id]', 'OrderController@addItem')->name("order.addItem");
+Route::get('/order/addAnimal/{id}', 'OrderController@addAnimal')->name("order.addAnimal");
+Route::get('/order/addItem/{id}', 'OrderController@addItem')->name("order.addItem");
+Route::get('/order/deleteAnimal/{id}', 'OrderController@deleteAnimal')->name("order.deleteAnimal");
+Route::get('/order/deleteItem/{id}', 'OrderController@deleteItem')->name("order.deleteItem");
 
-    
+
 Auth::routes();

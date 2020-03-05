@@ -2,9 +2,11 @@
 
     return [
         'login' => 'Iniciar Sesión',
+        'continue' => 'Continuar',
         'paymentMethod' => 'Método de pago',
         'addProducts' => 'Agregar productos',
         'addAnimals' => 'Agregar animales',
+        'addToOrder' => 'Agregar a la Orden',
         'animals' => 'Animales',
         'quantity' => 'Cantidad',
         'register' => 'Registrarse',

@@ -10,7 +10,14 @@
             <div class="card">
                 <div class="card-header">{{ $pet->getName() }}</div>
                 <div class="card-body">
-                <a href="{{route('pets.pet', $pet -> id) }}"> @lang('messages.more_pet') {{ $pet->getId() }}</a>
+                        <div class="row">
+                            <div class="col">
+                                <a href="{{route('pets.pet', $pet -> id) }}"> @lang('messages.more_pet') {{ $pet->getId() }}</a>
+                            </div>
+                            <div class="col text-right">
+                                <a class="btn btn-info" href="#">@lang('messages.addToOrder')</a>
+                            </div>
+                        </div>
                 </div>
             </div>
             <br />
