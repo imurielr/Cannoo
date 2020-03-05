@@ -27,7 +27,7 @@
         'date_form' => 'Ingrese fecha',
         'animal_form' => 'Ingrese animal',
         'client_form' => 'Ingrese cliente',
-        'more_pet' => 'Ver más del amigo #',
+        'more_pet' => 'Ver más de ',
         'breed' => 'Raza',
         'type' => 'Tipo',
         'yes' => 'Sí',

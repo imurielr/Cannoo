@@ -9,6 +9,7 @@
             <div class="card">
                 <div class="card-header">{{ $data["pet"]->getName() }}</div>
                 <div class="card-body">
+                    <img width="70%" height="70%" src="{{ URL::to('/') }}/images/pets/{{$data['pet']->getId() }}.jpg"><br />
                     <b>Id:</b> {{ $data["pet"]->getId() }}<br />
                     <b>@lang('messages.name'):</b> {{ $data["pet"]->getName() }}<br />
                     <b>@lang('messages.type'):</b> {{ $data["pet"]->getType()}}<br />
