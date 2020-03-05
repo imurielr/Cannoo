@@ -2,6 +2,11 @@
 
     return [
         'login' => 'Login',
+        'paymentMethod' => 'Payment method',
+        'addProducts' => 'Add products',
+        'addAnimals' => 'Add animals',
+        'animals' => 'Animals',
+        'quantity' => 'Quantity',
         'register' => 'Register',
         'logout' => 'Logout',
         'confirm_pswd' => 'Confirm Password',

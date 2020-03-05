@@ -2,6 +2,11 @@
 
     return [
         'login' => 'Iniciar Sesión',
+        'paymentMethod' => 'Método de pago',
+        'addProducts' => 'Agregar productos',
+        'addAnimals' => 'Agregar animales',
+        'animals' => 'Animales',
+        'quantity' => 'Cantidad',
         'register' => 'Registrarse',
         'logout' => 'Cerrar Sesión',
         'confirm_pswd' => 'Verificar Contraseña',
