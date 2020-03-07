@@ -22,7 +22,7 @@
                     @endif
                     <form method="POST" action="{{ route('pets.erase', $data['pet'] -> id) }}">
                         @csrf
-                        <input class="float-right" type="submit" value="@lang('messages.deletePet')"/>
+                        <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deletePet')"/>
                     </form> 
                 </div>
             </div>

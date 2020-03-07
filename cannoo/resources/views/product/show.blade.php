@@ -3,36 +3,25 @@
 @section("title", $data["title"])
 
 @section('content')
+<link rel="stylesheet" href="{{ URL::asset('css/customStyles.css') }}">
 <div class="container">
-    <div class="col-md-12">
-        <ul id="errors">
-            <div class="card">
-                @include('util.message')
-                <div class="card-header">@lang('messages.products')</div>
-                <div class="card-body">
-                
-                    <ul id="errors">
-                        @foreach($data["products"] as $index => $product)
-                        <div class="row">
-                            <div class="col">
-                                <a style="color:black;" href="{{ route('product.showProduct', $product -> id)  }}">
-                                    <li> 
-                                        <b>Id: </b> {{ $product->getId() }} <br/>
-                                        <b>@lang('messages.product'): </b> {{ $product->getType() }}
-                                    </li>
-                                </a>
-                                <br/>
-                            </div>
-                            <div class="col text-right">
-                                <a class="btn btn-info" href="#">@lang('messages.addToOrder')</a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </ul>
+    <div class="row justify-content-center">
+    @foreach($data["products"] as $index => $product)
+        <div class="col-md-4" style="padding-top=5px; ">
+            <div class="card" style="min-width: 350px; min-height: 350px;">
+                <div class="card-header">{{ $product->getType() }}</div>
+                <div class="card-body"> 
+                    <a href="{{ route('product.showProduct', $product -> id) }}">
+                        <img width="100%" height="100%" src="{{ URL::to('/') }}/storage/{{$product->getId()}}.png">
+                    </a>    
+                    <br/><br/>
+                        <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>
                 </div>
             </div>
-            <br/>
-        </ul>
-    </div>
+            <br />
+        </div>   
+    @endforeach    
+   
+    </div>    
 </div>
 @endsection

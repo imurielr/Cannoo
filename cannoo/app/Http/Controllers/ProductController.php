@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use Illuminate\Http\Request;
+    use App\Interfaces\ImageStorage;
     use App\Product;
 
     class ProductController extends Controller {
@@ -12,12 +13,12 @@
         }
 
         public function save(Request $request) {
-            $request->validate([
-                "type" => "required",
-                "price" => "required | numeric | gt:0",
-                "description" => "required"
-            ]);
-            Product::create($request->only(["type","price","description"]));
+            Product::validate($request);
+            $product = Product::create($request->only(["type","price","description"]));
+
+            $storeInterface = app(ImageStorage::class);
+            $storeInterface->store($request, $product->getId());
+
 
             return back()->with('success','Item created successfully!');
         }

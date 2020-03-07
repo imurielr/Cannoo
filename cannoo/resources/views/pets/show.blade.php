@@ -11,10 +11,10 @@
                 <div class="card-header">{{ $pet->getName() }}</div>
                 <div class="card-body"> 
                     <a href="{{route('pets.pet', $pet -> id) }}">
-                    <img width="100%" height="100%" src="{{ URL::to('/') }}/images/pets/{{$pet->getId()}}.jpg">
-                </a>
-                    <br />
-                   
+                        <img width="100%" height="100%" src="{{ URL::to('/') }}/images/pets/{{$pet->getId()}}.jpg">
+                    </a>    
+                    <br/><br/>
+                        <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>
                 </div>
             </div>
             <br />

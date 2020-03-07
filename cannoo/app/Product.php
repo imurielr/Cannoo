@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Product extends Model {
     //attributes id, type, price, description, created_at, updated_at
@@ -38,6 +39,15 @@ class Product extends Model {
 
     public function setDescription($description) {
         $this->attributes['description'] = $description;
+    }
+
+    public static function validate(Request $request) {
+        $request->validate([
+            "type" => "required",
+            "price" => "required | numeric | gt:0",
+            "description" => "required",
+            "profile_image" => "required"
+        ]);
     }
 
 }
