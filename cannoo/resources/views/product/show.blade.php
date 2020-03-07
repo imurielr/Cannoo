@@ -12,7 +12,7 @@
                 <div class="card-header">{{ $product->getType() }}</div>
                 <div class="card-body"> 
                     <a href="{{ route('product.showProduct', $product -> id) }}">
-                        <img width="100%" height="100%" src="{{ URL::to('/') }}/storage/{{$product->getId()}}.png">
+                        <img width="100%" height="100%" src="{{ URL::to('/') }}/storage/products/{{$product->getId()}}.png">
                     </a>    
                     <br/><br/>
                         <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>
