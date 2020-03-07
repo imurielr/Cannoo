@@ -16,7 +16,8 @@
                             <b>@lang('messages.description'): </b> {{ $data["product"]->getDescription() }}
                         </ul>
 
-                        <form  action="{{ route('product.delete', $data['product'] -> id) }}">
+                        <form method="POST" action="{{ route('product.delete', $data['product'] -> id) }}">
+                            @csrf
                             <input class="float-right" type="submit" value="@lang('messages.deleteProduct')"/>
                         </form>
 

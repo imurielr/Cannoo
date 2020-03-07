@@ -2,6 +2,13 @@
 
     return [
         'login' => 'Login',
+        'continue' => 'Continue',
+        'paymentMethod' => 'Payment method',
+        'addProducts' => 'Add products',
+        'addAnimals' => 'Add animals',
+        'addToOrder' => 'Add to Order',
+        'animals' => 'Animals',
+        'quantity' => 'Quantity',
         'register' => 'Register',
         'logout' => 'Logout',
         'confirm_pswd' => 'Confirm Password',

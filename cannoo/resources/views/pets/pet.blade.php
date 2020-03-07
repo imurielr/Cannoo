@@ -18,10 +18,11 @@
                     <b>@lang('messages.vaccinated'):</b> @lang('messages.yes')<br />
                     @else
                     <b>@lang('messages.vaccinated'):</b> @lang('messages.no')<br />
-                    @endif 
-                    <a href="{{ route('pets.erase', $data['pet'] -> id) }}">
-                    <button>@lang('messages.deletePet')</button>
-                    </a>
+                    @endif
+                    <form method="POST" action="{{ route('pets.erase', $data['pet'] -> id) }}">
+                        @csrf
+                        <input class="float-right" type="submit" value="@lang('messages.deletePet')"/>
+                    </form> 
                 </div>
             </div>
         </div> 

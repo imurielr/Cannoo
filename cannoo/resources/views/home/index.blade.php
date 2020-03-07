@@ -14,14 +14,14 @@
             <div class="card">
                 <div class="card-header"> @lang('messages.welcome_animal') </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-info">@lang('messages.adoptNow')</button>
+                    <a class="btn btn-info" href="{{ route('pets.show') }}">@lang('messages.adoptNow')</a>
                 </div>
             </div>
             <br>
             <div class="card">
                 <div class="card-header"> @lang('messages.welcome_product') </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-info">@lang('messages.buyNow')</button>
+                    <a class="btn btn-info" href="{{ route('product.show') }}">@lang('messages.buyNow')</a>
                 </div>
             </div>
         </div>

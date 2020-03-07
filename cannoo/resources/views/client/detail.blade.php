@@ -26,7 +26,12 @@
                     <td>{{ $client -> name }}</td>
                     <td>{{ $client -> phone }}</td>
                     <td>{{ $client -> address }}</td>
-                    <td><a class="btn btn-danger" href="{{ route('client.delete', $client -> id) }}">@lang('messages.deleteClient')</a></td>
+                    <td>
+                        <form method=POST action="{{ route('client.delete', $client -> id) }}">
+                            @csrf
+                            <input class="btn btn-danger" type="submit" value="@lang('messages.deleteClient')"/>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>

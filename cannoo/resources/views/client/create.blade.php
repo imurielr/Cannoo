@@ -15,7 +15,7 @@
                 <input type="text" placeholder="@lang('messages.name_form')" name="name"/>
                 <input type="text" placeholder="@lang('messages.phone_form')" name="phone"/>
                 <input type="text" placeholder="@lang('messages.address_form')" name="address"/>
-                <input type="submit" value="Send" />
+                <input type="submit" value="@lang('messages.send')" />
         </form>
     </div>
 </div>

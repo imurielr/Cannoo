@@ -27,7 +27,7 @@ class ClientController extends Controller{
     }
 
     public function save(Request $request){
-        //Client::validate($request);
+        // Client::validate($request);
         $request->validate([
             "name" => "required",
             "phone" => "required",
