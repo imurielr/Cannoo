@@ -35,7 +35,7 @@
         'type_form' => 'Enter type',
         'animal_form' => 'Enter animal',
         'client_form' => 'Enter client',
-        'more_pet' => 'See more about  friend #',
+        'more_pet' => 'See more about ',
         'breed' => 'Breed',
         'type' => 'Type',
         'yes' => 'Yes',
