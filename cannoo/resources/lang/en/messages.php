@@ -35,7 +35,7 @@
         'type_form' => 'Enter type',
         'animal_form' => 'Enter animal',
         'client_form' => 'Enter client',
-        'more_pet' => 'See more about  friend #',
+        'more_pet' => 'See more about ',
         'breed' => 'Breed',
         'type' => 'Type',
         'yes' => 'Yes',
@@ -80,5 +80,6 @@
         'welcome' => 'Welcome to Cannoo',
         'welcome_animal' => 'Meet all of our pets and bring a new friend home!',
         'welcome_product' => 'Explore our Animal Care products catalog!',
-        'welcome_sub' => 'Our goal is to unite animals with their future owners'
+        'welcome_sub' => 'Our goal is to unite animals with their future owners',
+        'image' => 'Image',
     ];
