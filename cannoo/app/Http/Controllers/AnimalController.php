@@ -31,12 +31,11 @@ class AnimalController extends Controller {
 
 
     public function save(Request $request) {
-        $copy= $request;
-        Animal::validate($copy);
-        $animal = Animal::create($copy->only(["type","breed","birthDate","vaccinated","image"]));
+        Animal::validate($request);
+        $animal = Animal::create($request->only(["type","breed","birthDate","vaccinated"]));
 
         $storeInterface = app(ImageStorage::class);
-        $storeInterface->store($request, $animal->getImage());
+        $storeInterface->store($request, "animal", $animal->getId());
 
 
         return back()->with('success','Item created successfully!');

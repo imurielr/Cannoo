@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model {
     //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at
-    protected $fillable = ['type','breed','birthDate','vaccinated','image'];
+    protected $fillable = ['type','breed','birthDate','vaccinated'];
 
     public function getId() {
         return $this->attributes['id'];
@@ -72,13 +72,13 @@ class Animal extends Model {
         $this->attributes['order'] = $order;
     }
 
-    public function getImage() {
-        return $this->attributes['image'];
-    }
+    // public function getImage() {
+    //     return $this->attributes['image'];
+    // }
 
-    public function setImage($image) {
-        $this->attributes['image'] = $image;
-    }
+    // public function setImage($image) {
+    //     $this->attributes['image'] = $image;
+    // }
 
     public static function validate(Request $request) {
         $request->validate([
@@ -88,7 +88,7 @@ class Animal extends Model {
             "image" =>"required"
         ]);
         $request["vaccinated"]=(bool)$request["vaccinated"];
-        $request["image"]= $request["image"]->getClientOriginalName();
+        // $request["image"]= $request["image"]->getClientOriginalName();
     }
     
 

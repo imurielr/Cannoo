@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">{{ $data["animal"]->getType() }}</div>
                 <div class="card-body">
-                    <img width="70%" height="70%" src="{{ URL::to('/') }}/storage/uploads/{{$data['animal']->getImage() }}"><br />
+                    <img width="70%" height="70%" src="{{ URL::to('/') }}/storage/uploads/{{$data['animal']->getId() }}"><br />
                     <b>Id:</b> {{ $data["animal"]->getId() }}<br />
                     <b>@lang('messages.type'):</b> {{ $data["animal"]->getType()}}<br />
                     <b>@lang('messages.breed'):</b> {{ $data["animal"]->getBreed() }}<br />

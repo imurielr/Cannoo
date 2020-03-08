@@ -46,7 +46,7 @@ class Product extends Model {
             "type" => "required",
             "price" => "required | numeric | gt:0",
             "description" => "required",
-            "profile_image" => "required"
+            "image" => "required"
         ]);
     }
 

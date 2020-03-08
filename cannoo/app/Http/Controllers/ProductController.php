@@ -17,7 +17,7 @@
             $product = Product::create($request->only(["type","price","description"]));
 
             $storeInterface = app(ImageStorage::class);
-            $storeInterface->store($request, $product->getId());
+            $storeInterface->store($request, "product", $product->getId());
 
 
             return back()->with('success','Item created successfully!');
