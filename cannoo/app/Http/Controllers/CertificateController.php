@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Certificate;
+use App\User;
+use App\Animal;
 
 class CertificateController extends Controller {
 
@@ -15,17 +17,16 @@ class CertificateController extends Controller {
 
 
     public function create() {
-        return view('certificate.create');
+        $data=[];
+        $data['clients'] = User::where('role', 'client')->get();;
+        $data['animals'] = Animal::all();
+        return view('certificate.create')->with('data',$data);
     }
 
     public function save(Request $request) {
-        //Certificate::validate($request);
-        $request->validate([
-            "animal" => "required | numeric | gt:0",
-            "client" => "required | numeric | gt:0",
-            "date" => "required"
-        ]);
-        $request["verified"]=(bool)$request["verified"]; 
+        Certificate::validate($request);
+        
+
         Certificate::create($request->only(["client","animal","date","verified"]));
 
         return back()->with('success','Item created successfully!');
