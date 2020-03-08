@@ -9,14 +9,14 @@ class AnimalController extends Controller {
     public function show() {
         $data = []; //to be sent to the view
         $data["title"] = "Ver Mascotas";
-        $data["pets"] = Animal::all();
+        $data["animal"] = Animal::all();
         return view('animal.show')->with("data",$data);
     }
 
     public function pet($id) {
         $data = []; //to be sent to the view
         $data["title"] = "Pet";
-        $data["pet"] = Animal::findOrFail($id);
+        $data["animal"] = Animal::findOrFail($id);
         return view('animal.pet')->with("data",$data);
     }
 

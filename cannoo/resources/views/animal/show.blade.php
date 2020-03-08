@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/customStyles.css') }}">
 <div class="container">
     <div class="row justify-content-center">
-    @foreach($data["pets"] as $indexKey => $pet)
+    @foreach($data["animal"] as $indexKey => $pet)
         <div class="col-md-4" style="padding-top=5px; ">
             <div class="card" style="min-width: 350px; min-height: 350px;">
                 <div class="card-header">{{ $pet->getType() }}</div>

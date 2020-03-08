@@ -38,7 +38,7 @@ Route::post('/animal/erase/{id}', ['middleware' => 'auth', 'uses' => 'AnimalCont
 Route::get('/order', ['middleware' => 'auth', 'uses' => 'OrderController@index'])->name("order.index");
 Route::get('/order/addAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addAnimal'])->name("order.addAnimal");
 Route::get('/order/addItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addItem'])->name("order.addItem");
-Route::get('/order/deleteAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteAnimal'])->name("order.deleteAnimal");
+Route::post('/order/deleteAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteAnimal'])->name("order.deleteAnimal");
 Route::get('/order/deleteItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteItem'])->name("order.deleteItem");
 
 
