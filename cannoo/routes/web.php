@@ -31,7 +31,7 @@ Route::get('/client/show', 'ClientController@showAll')->name("client.show");
 Route::get('/client/show/{id}', 'ClientController@showClient')->name("client.showClient");
 Route::get('/client/delete/{id}', 'ClientController@delete')->name("client.delete");
 Route::get('/animal/show', 'AnimalController@show')->name("animal.show");
-Route::get('/animal/show/{id}', 'AnimalController@pet')->name("animal.showAnimal");
+Route::get('/animal/show/{id}', 'AnimalController@animal')->name("animal.showAnimal");
 Route::get('/animal/create', 'AnimalController@create')->name("animal.create");
 Route::post('/animal/save', 'AnimalController@save')->name("animal.save");
 Route::get('/animal/erase/{id}', 'AnimalController@erase')->name("animal.erase");
