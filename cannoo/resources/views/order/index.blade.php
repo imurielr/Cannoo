@@ -18,7 +18,7 @@
             @endforeach
         </tbody>
     </table>
-    <a class="btn btn-info" href="{{ route('pets.show') }}">@lang('messages.addAnimals')</a>
+    <a class="btn btn-info" href="{{ route('animal.show') }}">@lang('messages.addAnimals')</a>
 </div>
 
 <br>

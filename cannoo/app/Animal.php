@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pet extends Model {
+class Animal extends Model {
     //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at
     protected $fillable = ['type','breed','birthDate','vaccinated'];
 
