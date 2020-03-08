@@ -1,6 +1,9 @@
 <?php 
 
     return [
+        'client' => 'Client',
+        'makeAdmin' => 'Make administrator',
+        'actions' => 'Actions',
         'login' => 'Login',
         'continue' => 'Continue',
         'paymentMethod' => 'Payment method',

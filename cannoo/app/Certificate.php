@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Certificate extends Model {
@@ -60,7 +60,7 @@ class Certificate extends Model {
     public static function validate(Request $request) {
         $request->validate([
             "animal" => "required | numeric | gt:0",
-            "client" => "required | numeric | gt:0",
+            "client" => "required | numeric | gt:0 ",
             "date" => "required"
         ]);
         $request["verified"]=(bool)$request["verified"];

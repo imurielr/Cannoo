@@ -4,7 +4,9 @@
 
 @section('content')
 <div class="container">
+
     @foreach($data["certificates"] as $index => $certificate)
+        @if ((Auth::user()->role == 'admin') or (Auth::user()->id == $certificate->getClient()))
         <div class="col-md-8" style="padding-top=5px;">
             <div class="card">
                 <div class="card-header">@lang('messages.cert') #{{ $certificate ->getId()}}</div>
@@ -21,6 +23,7 @@
             </div>
             <br />
         </div>
+        @endif
     @endforeach
 </div>
 @endsection

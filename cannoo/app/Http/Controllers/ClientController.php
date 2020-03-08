@@ -25,5 +25,10 @@ class ClientController extends Controller{
         return $this->showAll();
     }
 
+    public function makeAdmin($id){
+        $client = User::where('id',$id)->update(['role' => 'admin']);
+        return redirect()->route('client.show');
+    }
+
 }
 ?>

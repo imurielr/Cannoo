@@ -20,8 +20,15 @@
 
                 <form method="POST" action="{{ route('certificate.save') }}">
                     @csrf
-                    <input placeholder="@lang('messages.animal_form')" name="animal" value="{{ old('animal') }}" />
-                    <input placeholder="@lang('messages.client_form')" name="client" value="{{ old('client') }}" />
+
+                    <label for="animal">@lang('messages.animal'):</label>
+                    <select name='animal'id="animal">
+                    @foreach($data['animals'] as $index =>$animal)
+                    <option value="{{$animal->getId()}}">{{ $animal->getId()}}. {{$animal ->getType()}} {{$animal ->getBreed()}}</option>
+                    @endforeach
+                    </select> 
+                    <br/> <br/>
+                    <input placeholder="@lang('messages.client_form')" name="client" value="{{ old('client') }}" /> <br/> <br/>
                     <input type="date" placeholder="@lang('messages.date_form')" name="date" value="{{ old('date') }}" /> <br/> <br/>
                     <input type="checkbox" name="verified" value="verified">
                     <label for="verified">@lang('messages.verified')</label><br> <br/> 

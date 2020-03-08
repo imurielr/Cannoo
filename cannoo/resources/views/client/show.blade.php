@@ -10,6 +10,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">@lang('messages.name')</th>
+                    <th scope="col">@lang('messages.actions')</th>
                 </tr>
             </thead> 
             <tbody>

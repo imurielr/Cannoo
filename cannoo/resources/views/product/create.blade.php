@@ -29,7 +29,7 @@
                         <br/><br/>
                         <div class="form-group">
                             <label>@lang('messages.image'):</label>
-                            <input type="file" name="image" />
+                            <input type="file" name="image" accept="image/png, image/jpeg"/>
                         </div>
                         <input type="submit" value="@lang('messages.send')" />
                     </form>
