@@ -13,7 +13,7 @@ class UpdateAnimalTable2 extends Migration
      */
     public function up()
     {
-        Schema::table('pets', function (Blueprint $table) {
+        Schema::table('animals', function (Blueprint $table) {
             $table->integer('certificate')->nullable()->change();
             $table->integer('order')->nullable()->change();
         });
@@ -26,7 +26,7 @@ class UpdateAnimalTable2 extends Migration
      */
     public function down()
     {
-        Schema::table('pets', function (Blueprint $table) {
+        Schema::table('animals', function (Blueprint $table) {
             $table->integer('certificate')->nullable($value = false)->change();
             $table->integer('order')->nullable($value = false)->change();
         });

@@ -30,11 +30,11 @@ Route::post('/client/save', ['middleware' => 'auth', 'uses' => 'ClientController
 Route::get('/client/show', ['middleware' => 'auth', 'uses' => 'ClientController@showAll'])->name("client.show");
 Route::get('/client/show/{id}', ['middleware' => 'auth', 'uses' => 'ClientController@showClient'])->name("client.showClient");
 Route::post('/client/delete/{id}', ['middleware' => 'auth', 'uses' => 'ClientController@delete'])->name("client.delete");
-Route::get('/pets/show', ['middleware' => 'auth', 'uses' => 'PetsController@show'])->name("pets.show");
-Route::get('/pets/create', ['middleware' => 'auth', 'uses' => 'PetsController@create'])->name("pets.create");
-Route::post('/pets/save', ['middleware' => 'auth', 'uses' => 'PetsController@save'])->name("pets.save");
-Route::get('/pets/pet/{id}', ['middleware' => 'auth', 'uses' => 'PetsController@pet'])->name("pets.pet");
-Route::post('/pets/erase/{id}', ['middleware' => 'auth', 'uses' => 'PetsController@erase'])->name("pets.erase");
+Route::get('/animal/show', ['middleware' => 'auth', 'uses' => 'AnimalController@show'])->name("animal.show");
+Route::get('/animal/create', ['middleware' => 'auth', 'uses' => 'AnimalController@create'])->name("animal.create");
+Route::post('/animal/save', ['middleware' => 'auth', 'uses' => 'AnimalController@save'])->name("animal.save");
+Route::get('/animal/show/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@pet'])->name("animal.pet");
+Route::post('/animal/erase/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@erase'])->name("animal.erase");
 Route::get('/order', ['middleware' => 'auth', 'uses' => 'OrderController@index'])->name("order.index");
 Route::get('/order/addAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addAnimal'])->name("order.addAnimal");
 Route::get('/order/addItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addItem'])->name("order.addItem");

@@ -13,14 +13,15 @@ class UpdateAnimalTable extends Migration
      */
     public function up()
     {
-        Schema::rename('animals', 'pets');
+        Schema::rename('pets', 'animals');
 
-        Schema::table('pets', function (Blueprint $table) {
+        Schema::table('animals', function (Blueprint $table) {
             $table->renameColumn('date', 'birthDate');
             $table->dropColumn('name');
             $table->integer('certificate');
             $table->integer('order');
         });
+        Schema::dropIfExists('pets');
     }
 
     /**
@@ -30,7 +31,7 @@ class UpdateAnimalTable extends Migration
      */
     public function down()
     {
-        Schema::table('pets', function (Blueprint $table) {
+        Schema::table('animals', function (Blueprint $table) {
             $table->text('name');
             $table->renameColumn('birthDate', 'date');
             $table->dropColumn('certificate');

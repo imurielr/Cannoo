@@ -10,7 +10,7 @@
             <div class="card" style="min-width: 350px; min-height: 350px;">
                 <div class="card-header">{{ $pet->getType() }}</div>
                 <div class="card-body"> 
-                    <a href="{{route('pets.pet', $pet -> id) }}">
+                    <a href="{{route('animal.pet', $pet -> id) }}">
                         <img width="100%" height="100%" src="{{ URL::to('/') }}/images/pets/{{$pet->getId()}}.jpg">
                     </a>    
                     <br/><br/>
