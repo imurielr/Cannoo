@@ -2,47 +2,46 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Pet;
+use App\Animal;
 
-class PetsController extends Controller {
+class AnimalController extends Controller {
     
     public function show() {
         $data = []; //to be sent to the view
         $data["title"] = "Ver Mascotas";
-        $data["pets"] = Pet::all();
-        return view('pets.show')->with("data",$data);
+        $data["pets"] = Animal::all();
+        return view('animal.show')->with("data",$data);
     }
 
-    public function pet($id) {
+    public function animal($id) {
         $data = []; //to be sent to the view
-        $data["title"] = "Pet";
-        $data["pet"] = Pet::findOrFail($id);
-        return view('pets.pet')->with("data",$data);
+        $data["title"] = "Animal";
+        $data["animal"] = Animal::findOrFail($id);
+        return view('animal.animal')->with("data",$data);
     }
 
 
     public function create() {
         $data = []; //to be sent to the view
         $data["title"] = "Crear Mascota";
-        return view('pets.create')->with("data",$data);
+        return view('animal.create')->with("data",$data);
     }
 
 
     public function save(Request $request) {
         $request->validate([
-            "name" => "required",
             "breed" => "required",
             "type" => "required",
-            "date"=>"required"
+            "birthDate"=>"required"
         ]);
         $request["vaccinated"]=(bool)$request["vaccinated"];
-        Pet::create($request->only(["name","type","breed","date","vaccinated"]));
+        Animal::create($request->only(["type","breed","birthDate","vaccinated"]));
         return back()->with('success','Item inserted successfully!');
     }
 
     public function erase($id) {
-        Pet::where('id', $id)->delete();
-        return redirect('pets/show');
+        Animal::where('id', $id)->delete();
+        return redirect('animal/show');
     }
 }
 ?>

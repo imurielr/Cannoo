@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-header"> @lang('messages.welcome_animal') </div>
                 <div class="card-body">
-                    <a class="btn btn-info" href="{{ route('pets.show') }}">@lang('messages.adoptNow')</a>
+                    <a class="btn btn-info" href="{{ route('animal.show') }}">@lang('messages.adoptNow')</a>
                 </div>
             </div>
             <br>
