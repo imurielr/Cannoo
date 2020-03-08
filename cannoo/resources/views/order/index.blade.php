@@ -38,7 +38,11 @@
             <tr>
                 <td scope="row">($item -> product as $product) - {{ $product -> getType() }}</td>
                 <td>($item -> product as $product) - {{ $product -> getPrice() }}</td>
-                <td><a class="btn btn-warning" href="{{ route('order.deleteItem', $item -> id) }}">@lang('messages.delete')</a></td>
+                <td>
+                <form method="POST" action="{{ route('order.deleteItem', $item -> id) }}">
+                    @csrf
+                    <input class="btn btn-warning" type="submit" value="@lang('messages.delete')"/>
+                </form> 
             </tr>
             @endforeach
         </tbody>

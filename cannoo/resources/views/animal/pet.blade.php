@@ -9,17 +9,17 @@
             <div class="card">
                 <div class="card-header">{{ $data["animal"]->getType() }}</div>
                 <div class="card-body">
-                    <img width="70%" height="70%" src="{{ URL::to('/') }}/images/pets/{{$data['pet']->getId() }}.jpg"><br />
-                    <b>Id:</b> {{ $data["pet"]->getId() }}<br />
-                    <b>@lang('messages.type'):</b> {{ $data["pet"]->getType()}}<br />
-                    <b>@lang('messages.breed'):</b> {{ $data["pet"]->getBreed() }}<br />
-                    <b>@lang('messages.birth'):</b> {{ $data["pet"]->getDate()}}<br />
-                    @if($data["pet"]->getVaccinated()==1)
+                    <img width="70%" height="70%" src="{{ URL::to('/') }}/images/pets/{{$data['animal']->getId() }}.jpg"><br />
+                    <b>Id:</b> {{ $data["animal"]->getId() }}<br />
+                    <b>@lang('messages.type'):</b> {{ $data["animal"]->getType()}}<br />
+                    <b>@lang('messages.breed'):</b> {{ $data["animal"]->getBreed() }}<br />
+                    <b>@lang('messages.birth'):</b> {{ $data["animal"]->getBirthDate()}}<br />
+                    @if($data["animal"]->getVaccinated()==1)
                     <b>@lang('messages.vaccinated'):</b> @lang('messages.yes')<br />
                     @else
                     <b>@lang('messages.vaccinated'):</b> @lang('messages.no')<br />
                     @endif
-                    <form method="POST" action="{{ route('animal.erase', $data['pet'] -> id) }}">
+                    <form method="POST" action="{{ route('animal.erase', $data['animal'] -> id) }}">
                         @csrf
                         <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deletePet')"/>
                     </form> 
