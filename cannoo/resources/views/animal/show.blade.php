@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section("title", $data["title"])
-
+ 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
