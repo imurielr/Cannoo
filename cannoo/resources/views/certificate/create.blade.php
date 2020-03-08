@@ -22,9 +22,9 @@
                     @csrf
 
                     <label for="animal">@lang('messages.animal'):</label>
-                    <select name='animal'id="animal">
+                    <select name='animal' id="animal">
                     @foreach($data['animals'] as $index =>$animal)
-                    <option value="{{$animal->getId()}}">{{ $animal->getId()}}. {{$animal ->getType()}} {{$animal ->getBreed()}}</option>
+                        <option value="{{$animal->getId()}}">{{ $animal->getId()}}. {{$animal ->getType()}} {{$animal ->getBreed()}}</option>
                     @endforeach
                     </select> 
                     <br/> <br/>

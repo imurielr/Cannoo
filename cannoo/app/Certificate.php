@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use App\Animal;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,7 +19,8 @@ class Certificate extends Model {
     }
 
     public function getClient() {
-        return $this->attributes['client'];
+        $client = User::findOrFail($this->attributes['client']);
+        return $client->getName();
     }
 
     public function setClient($client) {
@@ -29,7 +32,8 @@ class Certificate extends Model {
     }
 
     public function getAnimal() {
-        return $this->attributes['animal'];
+        $animal = Animal::findOrFail($this->attributes['animal']);
+        return "{$animal->getType()} - {$animal->getBreed()}";
     }
 
     public function setAnimal($animal) {
@@ -60,7 +64,7 @@ class Certificate extends Model {
     public static function validate(Request $request) {
         $request->validate([
             "animal" => "required | numeric | gt:0",
-            "client" => "required | numeric | gt:0 ",
+            "client" => "required",
             "date" => "required"
         ]);
         $request["verified"]=(bool)$request["verified"];

@@ -26,6 +26,13 @@ class CertificateController extends Controller {
     public function save(Request $request) {
         Certificate::validate($request);
         
+        $client = User::where('email', $request->input('client'))->get();
+
+        if ($client->isEmpty()) {
+            return back()->with('fail', "The client's email does not exist");
+        }
+
+        $request->merge(['client' => $client[0]->getId()]);
 
         Certificate::create($request->only(["client","animal","date","verified"]));
 
