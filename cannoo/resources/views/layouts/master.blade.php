@@ -67,8 +67,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.pets')</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('animal.show') }}">@lang('messages.showPets')</a>
-                            <a class="dropdown-item" href="{{ route('animal.create') }}">@lang('messages.addPet')</a>
+                            <a class="dropdown-item" href="{{ route('pets.show') }}">@lang('messages.showPets')</a>
+                            <a class="dropdown-item" href="{{ route('pets.create') }}">@lang('messages.addPet')</a>
                         </li>
                         
                         <li class="nav-item dropdown">

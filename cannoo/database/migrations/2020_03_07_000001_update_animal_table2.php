@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateAnimalTable extends Migration
+class UpdateAnimalTable2 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class UpdateAnimalTable extends Migration
      */
     public function up()
     {
-        Schema::table('animals', function (Blueprint $table) {
+        Schema::table('pets', function (Blueprint $table) {
             $table->integer('certificate')->nullable()->change();
             $table->integer('order')->nullable()->change();
         });
@@ -26,7 +26,7 @@ class UpdateAnimalTable extends Migration
      */
     public function down()
     {
-        Schema::table('animals', function (Blueprint $table) {
+        Schema::table('pets', function (Blueprint $table) {
             $table->integer('certificate')->nullable($value = false)->change();
             $table->integer('order')->nullable($value = false)->change();
         });
