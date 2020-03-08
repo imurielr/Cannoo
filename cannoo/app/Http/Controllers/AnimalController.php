@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+use App\Interfaces\ImageStorage;
 use App\Animal;
 
 class AnimalController extends Controller {
@@ -29,15 +31,18 @@ class AnimalController extends Controller {
 
 
     public function save(Request $request) {
-        $request->validate([
-            "breed" => "required",
-            "type" => "required",
-            "birthDate"=>"required"
-        ]);
-        $request["vaccinated"]=(bool)$request["vaccinated"];
-        Animal::create($request->only(["type","breed","birthDate","vaccinated"]));
-        return back()->with('success','Item inserted successfully!');
+        $copy= $request;
+        Animal::validate($copy);
+        $animal = Animal::create($copy->only(["type","breed","birthDate","vaccinated","image"]));
+
+        $storeInterface = app(ImageStorage::class);
+        $storeInterface->store($request, $animal->getImage());
+
+
+        return back()->with('success','Item created successfully!');
     }
+
+    
 
     public function erase($id) {
         Animal::where('id', $id)->delete();

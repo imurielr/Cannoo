@@ -11,7 +11,7 @@
                 <div class="card-header">{{ $pet->getType() }}</div>
                 <div class="card-body"> 
                     <a href="{{route('animal.pet', $pet -> id) }}">
-                        <img width="100%" height="100%" src="{{ URL::to('/') }}/images/pets/{{$pet->getId()}}.jpg">
+                        <img width="100%" height="100%" src="{{ URL::to('/') }}/storage/uploads/{{$pet->getImage()}}">
                     </a>    
                     <br/><br/>
                         <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>

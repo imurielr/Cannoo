@@ -17,10 +17,10 @@
                     <div class="card-header">{{ $data["product"]->getType() }}</div>
                     <div class="card-body">
 
-                        <ul id="errors">
+                            <img width="40%" height="40%" src="{{ URL::to('/') }}/storage/uploads/{{$data['product']->getId()}}.png"><br />
                             <b>@lang('messages.price'): </b> {{ $data["product"]->getPrice() }} <br/>
                             <b>@lang('messages.description'): </b> {{ $data["product"]->getDescription() }}
-                        </ul>
+                       
 
                         <form method="POST" action="{{ route('product.delete', $data['product'] -> id) }}">
                             @csrf
