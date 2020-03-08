@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateAnimalTable5 extends Migration
+class AddRolesToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateAnimalTable5 extends Migration
      */
     public function up()
     {
-        Schema::table('animals', function (Blueprint $table) {
-            $table->text('image')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->text('role')->nullable();
         });
     }
 
@@ -25,10 +25,8 @@ class UpdateAnimalTable5 extends Migration
      */
     public function down()
     {
-        Schema::table('animals', function (Blueprint $table) {
-            $table->text('image');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
         });
     }
 }
-
-?>

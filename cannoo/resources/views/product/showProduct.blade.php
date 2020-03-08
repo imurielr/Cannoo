@@ -22,14 +22,18 @@
                             <b>@lang('messages.description'): </b> {{ $data["product"]->getDescription() }}
                         </p>
 
-                        <form method="POST" action="{{ route('product.delete', $data['product'] -> id) }}">
-                            @csrf
-                            <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteProduct')"/>
-                        </form>
+                        @if (Auth::user()->role == 'admin')
+                            <form method="POST" action="{{ route('product.delete', $data['product'] -> id) }}">
+                                @csrf
+                                <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteProduct')"/>
+                            </form>
 
-                        <form  action="{{ route('product.update', $data['product'] -> id) }}">
-                            <input class="btn btn-info float-right" type="submit" value="@lang('messages.changeDescription')" style="margin-right:5px;"/>
-                        </form>
+                            <form  action="{{ route('product.update', $data['product'] -> id) }}">
+                                <input class="btn btn-info float-right" type="submit" value="@lang('messages.changeDescription')" style="margin-right:5px;"/>
+                            </form>
+                        @else
+                            <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>
+                        @endif
 
                     </div>
                 </div>
