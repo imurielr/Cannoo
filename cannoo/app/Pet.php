@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Pet extends Model {
-    //attributes id, name, type, breed, date, vaccinated, created_at, updated_at
-    protected $fillable = ['name','type','breed','date','vaccinated'];
+    //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at
+    protected $fillable = ['type','breed','birthDate','vaccinated'];
 
     public function getId() {
         return $this->attributes['id'];
@@ -14,22 +14,6 @@ class Pet extends Model {
 
     public function setId($id) {
         $this->attributes['id'] = $id;
-    }
-
-    public function getName() {
-        return $this->attributes['name'];
-    }
-
-    public function setName($name) {
-        $this->attributes['name'] = $name;
-    }
-
-    public function getBreed() {
-        return $this->attributes['breed'];
-    }
-
-    public function setBreed($breed) {
-        $this->attributes['breed'] = $breed;
     }
 
     public function getType() {
@@ -40,12 +24,20 @@ class Pet extends Model {
         $this->attributes['type'] = $type;
     }
 
-    public function getDate() {
-        return $this->attributes['date'];
+    public function getBreed() {
+        return $this->attributes['breed'];
     }
 
-    public function setDate($date) {
-        $this->attributes['date'] = $date;
+    public function setBreed($breed) {
+        $this->attributes['breed'] = $breed;
+    }
+
+    public function getBirthDate() {
+        return $this->attributes['birthDate'];
+    }
+
+    public function setBirthDate($date) {
+        $this->attributes['birthDate'] = $date;
     }
 
     public function getVaccinated() {
@@ -55,13 +47,36 @@ class Pet extends Model {
     public function setVaccinated($vaccinated) {
         $this->attributes['vaccinated'] = $vaccinated;
     }
+    
+    public function certificate(){
+        return $this->hasOne(Certificate::class);
+    }
+    
+    public function getCertificate() {
+        return $this->attributes['certificate'];
+    }
+
+    public function setCertificate($certificate) {
+        $this->attributes['certificate'] = $certificate;
+    }
+    
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
+
+    public function getOrder() {
+        return $this->attributes['order'];
+    }
+
+    public function setOrder($order) {
+        $this->attributes['order'] = $order;
+    }
 
     public function validate(Request $request) {
         $request->validate([
-            "name" => "required",
-            "breed" => "required",
             "type" => "required",
-            "date"=>"required"
+            "breed" => "required",
+            "birthDate"=>"required"
         ]);
         $request["vaccinated"]=(bool)$request["vaccinated"];
     }

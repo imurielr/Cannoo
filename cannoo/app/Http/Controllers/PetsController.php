@@ -30,13 +30,12 @@ class PetsController extends Controller {
 
     public function save(Request $request) {
         $request->validate([
-            "name" => "required",
             "breed" => "required",
             "type" => "required",
-            "date"=>"required"
+            "birthDate"=>"required"
         ]);
         $request["vaccinated"]=(bool)$request["vaccinated"];
-        Pet::create($request->only(["name","type","breed","date","vaccinated"]));
+        Pet::create($request->only(["type","breed","birthDate","vaccinated"]));
         return back()->with('success','Item inserted successfully!');
     }
 

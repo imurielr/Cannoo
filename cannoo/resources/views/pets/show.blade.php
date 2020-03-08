@@ -8,7 +8,7 @@
     @foreach($data["pets"] as $indexKey => $pet)
         <div class="col-md-4" style="padding-top=5px; ">
             <div class="card" style="min-width: 350px; min-height: 350px;">
-                <div class="card-header">{{ $pet->getName() }}</div>
+                <div class="card-header">{{ $pet->getType() }}</div>
                 <div class="card-body"> 
                     <a href="{{route('pets.pet', $pet -> id) }}">
                         <img width="100%" height="100%" src="{{ URL::to('/') }}/images/pets/{{$pet->getId()}}.jpg">

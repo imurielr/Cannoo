@@ -20,11 +20,10 @@
 
                 <form method="POST" action="{{ route('pets.save') }}">
                     @csrf
-                    <input type="text" placeholder="@lang('messages.name_form')" name="name" value="{{ old('nae') }}" /> <br/> <br/>
                     <input type="text" placeholder="@lang('messages.type_form')" name="type" value="{{ old('type') }}" /> <br/> <br/>
                     <input type="text" placeholder="@lang('messages.breed_form')" name="breed" value="{{ old('breed') }}" /> <br/> <br/>
                     <label for="date">@lang('messages.birth'):</label><br/>
-                    <input type="date" placeholder="@lang('messages.birth_form')" name="date" value="{{ old('date') }}" /> <br/> <br/>
+                    <input type="date" placeholder="@lang('messages.birth_form')" name="birthDate" value="{{ old('date') }}" /> <br/> <br/>
                     <input type="checkbox" name="vaccinated" value="vacccinated">
                     <label for="vaccinated"> @lang('messages.vaccinated')</label><br> <br/> 
                     <input type="submit" value="@lang('messages.send')" />

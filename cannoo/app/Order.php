@@ -23,11 +23,11 @@ class Client extends Model{
     public function setClient($client){
         $this->attributes['client'] = $client;
     }
-    /*
+    
     public function animals(){
         return $this->hasMany(Animal::class);
     }
-
+    /*
     public function items(){
         return $this->hasMany(Item::class);
     }
@@ -44,7 +44,7 @@ class Client extends Model{
         return $this->attributes['totalPrice'];
     }
     
-    public function TotalPrice($totalPrice){
+    public function setTotalPrice($totalPrice){
         $this->attributes['totalPrice'] = $totalPrice;
     }
 

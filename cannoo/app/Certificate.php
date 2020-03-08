@@ -36,9 +36,9 @@ class Certificate extends Model {
         $this->attributes['animal'] = $animal;
     }
 
-    /*public function animal(){
+    public function animal(){
         return $this->belongsTo(Animal::class);
-    }*/
+    }
 
     public function getDate() {
         return $this->attributes['date'];

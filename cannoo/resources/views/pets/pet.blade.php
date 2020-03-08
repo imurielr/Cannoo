@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8" style="padding-top=5px;">
             <div class="card">
-                <div class="card-header">{{ $data["pet"]->getName() }}</div>
+                <div class="card-header">{{ $data["animal"]->getType() }}</div>
                 <div class="card-body">
                     <img width="70%" height="70%" src="{{ URL::to('/') }}/images/pets/{{$data['pet']->getId() }}.jpg"><br />
                     <b>Id:</b> {{ $data["pet"]->getId() }}<br />
