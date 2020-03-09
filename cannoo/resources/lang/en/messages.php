@@ -3,7 +3,10 @@
     return [
         'login' => 'Login',
         'continue' => 'Continue',
+        'emptyOrder' => 'Empty order',
         'paymentMethod' => 'Payment method',
+        'unitPrice' => 'Unit price',
+        'totalPrice' => 'Total price',
         'addProducts' => 'Add products',
         'addAnimals' => 'Add animals',
         'addToOrder' => 'Add to Order',

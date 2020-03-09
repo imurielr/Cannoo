@@ -42,7 +42,17 @@ class AnimalController extends Controller {
         return back()->with('success','Item created successfully!');
     }
 
+    public function addToSession(Request $request, $id){
+        $animal= Animal::findOrFail($id);
+        $request->session()->put('animals.'.$id, $animal);
+        return redirect()->route('order.index');
+    }
+
     
+    public function deleteFromSession(Request $request, $id){
+        $request->session()->forget('animals.'.$id);
+        return redirect()->route('order.index');
+    }
 
     public function erase($id) {
         Animal::where('id', $id)->delete();

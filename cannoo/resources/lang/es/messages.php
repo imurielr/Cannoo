@@ -3,7 +3,10 @@
     return [
         'login' => 'Iniciar Sesión',
         'continue' => 'Continuar',
+        'emptyOrder' => 'Vaciar orden',
         'paymentMethod' => 'Método de pago',
+        'unitPrice' => 'Precio unitario',
+        'totalPrice' => 'Precio total',
         'addProducts' => 'Agregar productos',
         'addAnimals' => 'Agregar animales',
         'addToOrder' => 'Agregar a la Orden',

@@ -28,12 +28,24 @@ class Item extends Model{
         $this->attributes['product'] = $product;
     }
 
+    public function getTotalPrice(){ 
+        return $this->attributes['quantity'] * $this->attributes['product']->getPrice();
+    }
+
     public function getQuantity(){
         return $this->attributes['quantity'];
     }
 
     public function setQuantity($quantity){
         $this->attributes['quantity'] = $quantity;
+    }
+
+    public function incrementQuantity(){
+        $this->attributes['quantity'] = $this->attributes['quantity'] + 1;
+    }
+
+    public function reduceQuantity(){
+        $this->attributes['quantity'] = $this->attributes['quantity'] - 1;
     }
     
     public function order(){
