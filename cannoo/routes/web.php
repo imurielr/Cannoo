@@ -24,6 +24,7 @@ Route::post('/product/update/{id}', ['middleware' => 'auth', 'uses' => 'ProductC
 Route::get('/certificate/show', ['middleware' => 'auth', 'uses' => 'CertificateController@show'])->name("certificate.show");
 Route::get('/certificate/create', ['middleware' => 'auth', 'uses' => 'CertificateController@create'])->name("certificate.create");
 Route::post('/certificate/save', ['middleware' => 'auth', 'uses' => 'CertificateController@save'])->name("certificate.save");
+Route::post('/certificate/delete/{id}', ['middleware' => 'auth', 'uses' => 'CertificateController@delete'])->name("certificate.delete");
 Route::get('/client', ['middleware' => 'auth', 'uses' => 'ClientController@index'])->name("client.index");
 Route::post('/client/makeAdmin/{id}', ['middleware' => 'auth', 'uses' => 'ClientController@makeAdmin'])->name("client.makeAdmin");
 // Route::get('/client/create', ['middleware' => 'auth', 'uses' => 'ClientController@create'])->name("client.create");

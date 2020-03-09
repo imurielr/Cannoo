@@ -36,6 +36,10 @@ class Certificate extends Model {
         return "{$animal->getType()} - {$animal->getBreed()}";
     }
 
+    public function getAnimalId() {
+        return $this->attributes['animal'];
+    }
+
     public function setAnimal($animal) {
         $this->attributes['animal'] = $animal;
     }
