@@ -23,6 +23,18 @@ class Order extends Model{
     public function setClient($client){
         $this->attributes['client'] = $client;
     }
+
+    public function getAnimals(){
+        return $this->attributes['animals'];
+    }
+
+    public function setAnimals(Array $animal){
+        $this->attributes['animals'] = $animals;
+    }
+
+    public function addAnimal($animal) {
+        array_push($this->attributes['animals'], $animal);
+    }
     
     public function animals(){
         return $this->hasMany(Animal::class);
@@ -30,6 +42,18 @@ class Order extends Model{
     
     public function items(){
         return $this->hasMany(Item::class);
+    }
+
+    public function getItems(){
+        return $this->attributes['items'];
+    }
+
+    public function setItems(Array $items){
+        $this->attributes['items'] = $items;
+    }
+
+    public function addItem($item) {
+        array_push($this->attributes['items'], $item);
     }
     
     public function getConfirmed(){

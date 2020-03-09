@@ -34,26 +34,36 @@ class OrderController extends Controller{
 
     //Este método debería dar sin problemas si se completa
     public function create(Request $request){
-        
+
         //Me cansé, ayuda acá porf
         $order = Order::make([
             // Que el cliente sea el usuario activo
-            'client' => 'Elena la ballena',
+            'client' => auth()->user()->getName(),
 
             'animals' => [],
             'items' => [],
 
             //Que el payment sea el elegido en order.index
             //(en la parte de abajo están las entradas pero no sé como relacionarlas acá)
-            'payment' => 'Con cash cash',
+            'payment' => $request->input('payment'),
         ]);
-        $order->animals()->save($this->getAnimals($request));
-        $order->items()->save($this->getItems($request));
-
-        //validar plis
+        // print_r("hola".$order->getPayment());
+        print_r($request);
+        $animals = $this->getAnimals($request);
+        if ($animals) {
+            foreach ($animals as $animal) {
+                $order->addAnimal($animal->getId());
+            }
+        }
+        $items = $this->getItems($request);
+        if ($items) {
+            foreach ($items as $item) {
+                $order->addItem($item->getProduct()->getId());
+            }
+        }
 
         //Ya este debería meterlo en la BD
-        $order.save();
+        $order->save();
     }
 
     public function flush(Request $request){

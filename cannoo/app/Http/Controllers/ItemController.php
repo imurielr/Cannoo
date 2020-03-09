@@ -30,6 +30,16 @@ class ItemController extends Controller
         
         //guardar esto en BD
         $items = $request->session()->get('items');
+
+        if ($items) {
+            foreach ($items as $item) {
+                Item::make([
+                    'product' => $item->getProduct(),
+                    'quantity' => $item->getQuantity()
+                ]);
+            }
+        }
+
         return redirect()->route('order.create');
     }
     

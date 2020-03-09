@@ -58,17 +58,21 @@
 <br>
 <br>
 
-<div class="container">
-    <select class="form-control">
-        <option selected>@lang('messages.paymentMethod')</option>
-        <option>Visa</option>
-        <option>MasterCard</option>
-    </select>
-    <br>
+<form action="{{ route('item.save') }}">
+    @csrf
+    <div class="container">
+        <select class="form-control" name="payment">
+            <option selected>@lang('messages.paymentMethod')</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">MasterCard</option>
+        </select>
+        <br>
 
-    <a class="btn btn-info" href="{{ route('item.save') }}">@lang('messages.continue')</a>
-    <a class="btn btn-info" href="{{ route('order.flush') }}">@lang('messages.emptyOrder')</a>
+        <a class="btn btn-info" href="{{ route('item.save') }}">@lang('messages.continue')</a>
+        <!-- <input class="btn btn-info" type="submit" value="@lang('messages.continue')"/> -->
+        <a class="btn btn-info" href="{{ route('order.flush') }}">@lang('messages.emptyOrder')</a>
 
-</div>
+    </div>
+</form>
 
 @endsection
