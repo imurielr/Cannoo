@@ -42,6 +42,8 @@ Route::get('/order/addAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderCon
 Route::get('/order/addItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addItem'])->name("order.addItem");
 Route::post('/order/deleteAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteAnimal'])->name("order.deleteAnimal");
 Route::get('/order/deleteItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteItem'])->name("order.deleteItem");
-
-
+Route::get('/top5/animals',['middleware' => 'auth', 'uses' => 'Top5Controller@animals'])->name("top5.animals");
+Route::get('/top5/products',['middleware' => 'auth', 'uses' => 'Top5Controller@products'])->name("top5.products");
+Route::post('/product/like/{id}', ['middleware' => 'auth', 'uses' => 'ProductController@like'])->name("product.like");
+Route::post('/animal/like/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@like'])->name("animal.like");
 Auth::routes();

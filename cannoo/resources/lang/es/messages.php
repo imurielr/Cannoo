@@ -1,6 +1,12 @@
 <?php 
 
     return [
+        'like' => 'Me gusta',
+        'score' => 'Me gusta',
+        'top5' => 'Top 5',
+        'top5_animal' => 'Los 5 animales favoritos de nuestros clientes!',
+        'top5_product' => 'Los 5 productos favoritos de nuestros clientes!',
+        'lookhere' => '¡Encuentralos aquí!',
         'deleteCertificate' => 'Eliminar Certificado',
         'client' => 'Cliente',
         'makeAdmin' => 'Hacer administrador',

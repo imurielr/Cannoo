@@ -71,4 +71,10 @@
             return redirect()->route('product.show');
         }
 
+        public function like($id){
+            $likes = Product::select('likes')->where('id', $id)->get();
+            Product::where('id',  $id)->update(['likes' => $likes[0]['likes']+1]);
+            return redirect()->route('product.show');
+        }
+
     }
