@@ -1,6 +1,15 @@
 <?php 
 
     return [
+        'deleteMessage' => 'Delete Message',
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'origin' => 'Your name',
+        'from' => 'From',
+        'write_here' => 'Write yout message here',
+        'subject' => 'Subject',
+        'leave_message' => 'Leave a message',
+        'contact' => 'Contact us',
         'like' => 'Like',
         'score' => 'Likes',
         'top5' => 'Top 5',

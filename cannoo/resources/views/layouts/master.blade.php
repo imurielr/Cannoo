@@ -43,6 +43,18 @@
                         @endif
                     @else
 
+                        @if (Auth::user()->role == 'client')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact.index') }}">@lang('messages.contact')</a>
+                        </li>
+                        @endif
+
+                        @if (Auth::user()->role == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact.messages') }}">@lang('messages.messages')</a>
+                        </li>
+                        @endif
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.products')</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
