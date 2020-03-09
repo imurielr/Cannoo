@@ -1,6 +1,8 @@
 <?php 
 
     return [
+        'sorry' => 'Lo sentimos :c',
+        'unavailable' => 'Esta mascota no está disponible para ser adoptada',
         'deleteMessage' => 'Eliminar Mensaje',
         'message' => 'Mensaje',
         'messages' => 'Mensajes',
