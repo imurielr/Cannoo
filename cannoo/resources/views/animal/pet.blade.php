@@ -33,7 +33,7 @@
                             <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deletePet')"/>
                         </form> 
                     @else
-                        <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>
+                        <a class="btn btn-info float-right" href="{{ route('animal.order', $data['animal'] -> id) }}">@lang('messages.addToOrder')</a>
                         <form method="POST" action="{{ route('animal.like',$data['animal'] -> id) }}" enctype="multipart/form-data">
                             @csrf
                             <button type="submit" class="btn btn-outline-primary">@lang('messages.like')</button>

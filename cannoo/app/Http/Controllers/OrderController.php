@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\HttP\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,6 +11,11 @@ class OrderController extends Controller{
     public function index(Request $request){
         $data["animals"] = $this->getAnimals($request);
         $data["items"] = $this->getItems($request);
+        $total =0;
+        foreach($data['items'] as $array => $item){
+            $total+= $item->getTotalPrice();
+        }
+        $data['total'] =$total;
         return view('order.index')->with("data", $data);
     }
 
@@ -32,23 +38,20 @@ class OrderController extends Controller{
     }
 
 
-    //Este método debería dar sin problemas si se completa
+
     public function create(Request $request){
 
-        //Me cansé, ayuda acá porf
         $order = Order::make([
-            // Que el cliente sea el usuario activo
             'client' => auth()->user()->getName(),
-
             'animals' => [],
             'items' => [],
-
-            //Que el payment sea el elegido en order.index
-            //(en la parte de abajo están las entradas pero no sé como relacionarlas acá)
-            'payment' => $request->input('payment'),
+            'payment' => $request->input('payment')
         ]);
-        // print_r("hola".$order->getPayment());
-        print_r($request);
+
+        $order->save();
+       /*  ItemController::save($request, $order->getId());
+
+        echo($request);
         $animals = $this->getAnimals($request);
         if ($animals) {
             foreach ($animals as $animal) {
@@ -62,8 +65,8 @@ class OrderController extends Controller{
             }
         }
 
-        //Ya este debería meterlo en la BD
         $order->save();
+        redirect()->route('home.index'); */
     }
 
     public function flush(Request $request){

@@ -48,7 +48,7 @@
                 <td scope="row"></td>
                 <td scope="row"></td>
                 <td scope="row"></td>
-                <td scope="row">Total a pagar, toca cambiar esto, es donde necesito el código PHP</td>
+                <td scope="row">{{$data['total']}}</td>
             <tr>
         </tbody>
     </table>
@@ -58,9 +58,10 @@
 <br>
 <br>
 
-<form action="{{ route('item.save') }}">
-    @csrf
+
+    
     <div class="container">
+        @csrf
         <select class="form-control" name="payment">
             <option selected>@lang('messages.paymentMethod')</option>
             <option value="visa">Visa</option>
@@ -68,11 +69,11 @@
         </select>
         <br>
 
-        <a class="btn btn-info" href="{{ route('item.save') }}">@lang('messages.continue')</a>
+        <a class="btn btn-info" href="{{ route('order.create') }}">@lang('messages.continue')</a>
         <!-- <input class="btn btn-info" type="submit" value="@lang('messages.continue')"/> -->
         <a class="btn btn-info" href="{{ route('order.flush') }}">@lang('messages.emptyOrder')</a>
 
     </div>
-</form>
+
 
 @endsection

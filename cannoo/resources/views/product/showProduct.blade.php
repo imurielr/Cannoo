@@ -32,7 +32,7 @@
                                 <input class="btn btn-info float-right" type="submit" value="@lang('messages.changeDescription')" style="margin-right:5px;"/>
                             </form>
                         @else
-                            <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>
+                            <a class="btn btn-info float-right" href="{{ route('item.create', $data['product']->id) }}">@lang('messages.addToOrder')</a>
                             <form method="POST" action="{{ route('product.like',$data['product'] -> id) }}" enctype="multipart/form-data">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-primary">@lang('messages.like')</button>

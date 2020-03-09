@@ -25,22 +25,20 @@ class ItemController extends Controller
         return redirect()->route('order.index');
     }
 
-    //Ayuda a completarlo plis
-    public function save(Request $request){
-        
-        //guardar esto en BD
+    public function save(Request $request,$id){
         $items = $request->session()->get('items');
-
         if ($items) {
             foreach ($items as $item) {
-                Item::make([
+                $item = Item::make([
                     'product' => $item->getProduct(),
-                    'quantity' => $item->getQuantity()
+                    'quantity' => $item->getQuantity(),
+                    'order' => $id
                 ]);
+                $item->save();
             }
         }
 
-        return redirect()->route('order.create');
+        //return redirect()->route('order.create');
     }
     
     public function delete(Request $request, $id){
