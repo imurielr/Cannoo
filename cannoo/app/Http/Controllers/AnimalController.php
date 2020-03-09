@@ -31,12 +31,11 @@ class AnimalController extends Controller {
 
 
     public function save(Request $request) {
-        $copy= $request;
-        Animal::validate($copy);
-        $animal = Animal::create($copy->only(["type","breed","birthDate","vaccinated","image"]));
+        Animal::validate($request);
+        $animal = Animal::create($request->only(["type","breed","birthDate","vaccinated","adopted"]));
 
         $storeInterface = app(ImageStorage::class);
-        $storeInterface->store($request, $animal->getImage());
+        $storeInterface->store($request, "animal", $animal->getId());
 
 
         return back()->with('success','Item created successfully!');
@@ -58,5 +57,12 @@ class AnimalController extends Controller {
         Animal::where('id', $id)->delete();
         return redirect('animal/show');
     }
+
+    public function like($id){
+        $likes = Animal::select('likes')->where('id', $id)->get();
+        Animal::where('id',  $id)->update(['likes' => $likes[0]['likes']+1]);
+        return redirect()->route('animal.show');
+    }
+
 }
 ?>

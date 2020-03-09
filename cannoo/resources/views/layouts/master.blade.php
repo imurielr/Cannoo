@@ -46,32 +46,58 @@
                         @endif
                     @else
 
+                        @if (Auth::user()->role == 'client')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact.index') }}">@lang('messages.contact')</a>
+                        </li>
+                        @endif
+
+                        @if (Auth::user()->role == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact.messages') }}">@lang('messages.messages')</a>
+                        </li>
+                        @endif
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.products')</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('product.show') }}">@lang('messages.showProducts')</a>
-                            <a class="dropdown-item" href="{{ route('product.create') }}">@lang('messages.createProduct')</a>
+                            @if (Auth::user()->role == 'admin')
+                                <a class="dropdown-item" href="{{ route('product.create') }}">@lang('messages.createProduct')</a>
+                            @endif
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.clients')</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('client.show') }}">@lang('messages.showClients')</a>
-                            <a class="dropdown-item" href="{{ route('client.create') }}">@lang('messages.newClient')</a>
-                        </li>
+                        @if (Auth::user()->role == 'admin')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.clients')</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('client.show') }}">@lang('messages.showClients')</a>
+                            </li>
+                        @endif
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.certificates')</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('certificate.show') }}">@lang('messages.showCert')</a>
-                            <a class="dropdown-item" href="{{ route('certificate.create') }}">@lang('messages.createCert')</a>
+                            @if (Auth::user()->role == 'admin')
+                                <a class="dropdown-item" href="{{ route('certificate.create') }}">@lang('messages.createCert')</a>
+                            @endif
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.pets')</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('animal.show') }}">@lang('messages.showPets')</a>
-                            <a class="dropdown-item" href="{{ route('animal.create') }}">@lang('messages.addPet')</a>
+                            @if (Auth::user()->role == 'admin')
+                                <a class="dropdown-item" href="{{ route('animal.create') }}">@lang('messages.addPet')</a>
+                            @endif
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.top5')</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('top5.animals') }}">@lang('messages.animals')</a>
+                            <a class="dropdown-item" href="{{ route('top5.products') }}">@lang('messages.products')</a>
                         </li>
                         
                         <li class="nav-item dropdown">

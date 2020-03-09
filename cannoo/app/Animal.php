@@ -5,8 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model {
-    //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at
-    protected $fillable = ['type','breed','birthDate','vaccinated','image'];
+    //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at, adopted, likes
+    protected $fillable = ['type','breed','birthDate','vaccinated','adopted','likes'];
 
     public function getId() {
         return $this->attributes['id'];
@@ -72,23 +72,34 @@ class Animal extends Model {
         $this->attributes['order'] = $order;
     }
 
-    public function getImage() {
-        return $this->attributes['image'];
+    public function getAdopted() {
+        return $this->attributes['adopted'];
     }
 
-    public function setImage($image) {
-        $this->attributes['image'] = $image;
+    public function setAdopted($adopted) {
+        $this->attributes['adopted'] = $adopted;
     }
+
+    public function getLikes() {
+        return $this->attributes['likes'];
+    }
+
+    public function setLikes($likes) {
+        $this->attributes['likes'] = $likes;
+    }
+
+    public function addLike() {
+        $this->attributes['likes'] = $likes+1;
+    }
+
 
     public static function validate(Request $request) {
         $request->validate([
             "type" => "required",
             "breed" => "required",
-            "birthDate"=>"required",
-            "image" =>"required"
+            "birthDate"=>"required"
         ]);
         $request["vaccinated"]=(bool)$request["vaccinated"];
-        $request["image"]= $request["image"]->getClientOriginalName();
     }
     
 

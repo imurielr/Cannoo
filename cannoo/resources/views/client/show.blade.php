@@ -1,11 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <a class="btn btn-info" href="{{ route('client.create') }}">
-        @lang('messages.newClient')
-    </a>
-</div>
 
 
 <div class="container">
@@ -15,6 +10,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">@lang('messages.name')</th>
+                    <th scope="col">@lang('messages.actions')</th>
                 </tr>
             </thead> 
             <tbody>

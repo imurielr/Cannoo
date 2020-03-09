@@ -2,45 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\User;
 
 class ClientController extends Controller{
     public function index(){
         return view('client.index');
     }
 
-    public function create(){
-        return view('client.create');
-    }
-
     public function showAll(){
-        $clients = DB::table('clients')->get()->sortby('id');
+        $clients = User::where('role', 'client')->get();
         return view('client.show', ['clients' => $clients]);
     }
 
     public function showClient($id){
-        $client = DB::table('clients')->where('id', $id)->first();
+        $client = User::findOrFail($id);
 
         return view('client.detail', ['client' => $client]);
     }
 
-    public function save(Request $request){
-        // Client::validate($request);
-        $request->validate([
-            "name" => "required",
-            "phone" => "required",
-            "address" => "required"
-        ]);
-        Client::create($request->only(["name","phone","address"]));
-        return view('client.confirm');
+    public function delete($id){
+        User::find($id)->delete();
+        return $this->showAll();
     }
 
-    
-    public function delete($id){
-        DB::table('clients')->where('id', $id)->delete();
-        return $this->showAll();
+    public function makeAdmin($id){
+        $client = User::where('id',$id)->update(['role' => 'admin']);
+        return redirect()->route('client.show');
     }
 
 }

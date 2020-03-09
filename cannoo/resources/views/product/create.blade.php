@@ -21,12 +21,15 @@
                     <form method="POST" action="{{ route('product.save') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="text" placeholder="@lang('messages.type_form')" name="type" value="{{ old('type') }}" />
+                        <br/><br/>
                         <input placeholder="@lang('messages.price_form')" name="price" value="{{ old('price') }}" />
-                        <input type="text" placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}" />
+                        <!-- <input type="text" placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}" /> -->
+                        <br/><br/>
+                        <textarea placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}"></textarea>
                         <br/><br/>
                         <div class="form-group">
                             <label>@lang('messages.image'):</label>
-                            <input type="file" name="profile_image" />
+                            <input type="file" name="image" accept="image/png, image/jpeg"/>
                         </div>
                         <input type="submit" value="@lang('messages.send')" />
                     </form>

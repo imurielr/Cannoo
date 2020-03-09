@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Certificate;
+use App\User;
+use App\Animal;
 
 class CertificateController extends Controller {
 
@@ -15,20 +17,32 @@ class CertificateController extends Controller {
 
 
     public function create() {
-        return view('certificate.create');
+        $data=[];
+        $data['clients'] = User::where('role', 'client')->get();;
+        $data['animals'] = Animal::all();
+        return view('certificate.create')->with('data',$data);
     }
 
     public function save(Request $request) {
-        //Certificate::validate($request);
-        $request->validate([
-            "animal" => "required | numeric | gt:0",
-            "client" => "required | numeric | gt:0",
-            "date" => "required"
-        ]);
-        $request["verified"]=(bool)$request["verified"]; 
-        Certificate::create($request->only(["client","animal","date","verified"]));
+        Certificate::validate($request);
+        //Validate client exist
+        $client = User::where('email', $request->input('client'))->get();
+        if ($client->isEmpty()) {
+            return back()->with('fail', "The client's email does not exist");
+        }
+        $request->merge(['client' => $client[0]->getId()]);
+        //Change animal status to adopted
+        Animal::where('id',$request['animal'])->update(['adopted' => 1]);
 
+        Certificate::create($request->only(["client","animal","date","verified"]));
         return back()->with('success','Item created successfully!');
+    }
+
+    public function delete($id) {
+        $info = Certificate::select('animal')->where('id', $id)->get();
+        Animal::where('id',  $info[0]['animal'])->update(['adopted' => 0]);
+       Certificate::where('id', $id)->delete();
+       return redirect('certificate/show');
     }
 }
 ?>

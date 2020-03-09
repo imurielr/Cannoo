@@ -17,7 +17,7 @@
             $product = Product::create($request->only(["type","price","description"]));
 
             $storeInterface = app(ImageStorage::class);
-            $storeInterface->store($request, $product->getId());
+            $storeInterface->store($request, "product", $product->getId());
 
 
             return back()->with('success','Item created successfully!');
@@ -68,6 +68,12 @@
             $product->setDescription($request["description"]);
             $product->save();
 
+            return redirect()->route('product.show');
+        }
+
+        public function like($id){
+            $likes = Product::select('likes')->where('id', $id)->get();
+            Product::where('id',  $id)->update(['likes' => $likes[0]['likes']+1]);
             return redirect()->route('product.show');
         }
 

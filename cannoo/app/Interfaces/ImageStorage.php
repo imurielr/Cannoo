@@ -4,5 +4,5 @@ namespace App\Interfaces;
 use Illuminate\Http\Request;
 
 interface ImageStorage {
-    public function store(Request $request, $id);
+    public function store(Request $request, $directory, $id);
 }

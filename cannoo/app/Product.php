@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class Product extends Model {
-    //attributes id, type, price, description, created_at, updated_at
-    protected $fillable = ['type','price','description'];
+    //attributes id, type, price, description, created_at, updated_at, likes
+    protected $fillable = ['type','price','description','likes'];
 
     public function getId() {
         return $this->attributes['id'];
@@ -44,13 +44,25 @@ class Product extends Model {
     public function item(){
         return $this->hasMany(Item::class);
     }
+    
+    public function getLikes() {
+        return $this->attributes['likes'];
+    }
+
+    public function setLikes($likes) {
+        $this->attributes['likes'] = $likes;
+    }
+
+    public function addLike(){
+        $this->attributes['likes'] = $likes+1;
+    }
 
     public static function validate(Request $request) {
         $request->validate([
             "type" => "required",
             "price" => "required | numeric | gt:0",
             "description" => "required",
-            "profile_image" => "required"
+            "image" => "required"
         ]);
     }
 

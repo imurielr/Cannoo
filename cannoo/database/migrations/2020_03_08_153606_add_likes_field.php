@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateAnimalTable5 extends Migration
+class AddLikesField extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,10 @@ class UpdateAnimalTable5 extends Migration
     public function up()
     {
         Schema::table('animals', function (Blueprint $table) {
-            $table->text('image')->nullable();
+            $table->integer('likes')->default(0);
+        });
+        Schema::table('products', function (Blueprint $table) {
+            $table->integer('likes')->default(0);
         });
     }
 
@@ -26,9 +29,10 @@ class UpdateAnimalTable5 extends Migration
     public function down()
     {
         Schema::table('animals', function (Blueprint $table) {
-            $table->text('image');
+            $table->dropcolumn('likes');
+        });
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropcolumn('likes');
         });
     }
 }
-
-?>
