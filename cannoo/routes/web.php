@@ -27,8 +27,6 @@ Route::post('/certificate/save', ['middleware' => 'auth', 'uses' => 'Certificate
 Route::post('/certificate/delete/{id}', ['middleware' => 'auth', 'uses' => 'CertificateController@delete'])->name("certificate.delete");
 Route::get('/client', ['middleware' => 'auth', 'uses' => 'ClientController@index'])->name("client.index");
 Route::post('/client/makeAdmin/{id}', ['middleware' => 'auth', 'uses' => 'ClientController@makeAdmin'])->name("client.makeAdmin");
-// Route::get('/client/create', ['middleware' => 'auth', 'uses' => 'ClientController@create'])->name("client.create");
-// Route::post('/client/save', ['middleware' => 'auth', 'uses' => 'ClientController@save'])->name("client.save");
 Route::get('/client/show', ['middleware' => 'auth', 'uses' => 'ClientController@showAll'])->name("client.show");
 Route::get('/client/show/{id}', ['middleware' => 'auth', 'uses' => 'ClientController@showClient'])->name("client.showClient");
 Route::post('/client/delete/{id}', ['middleware' => 'auth', 'uses' => 'ClientController@delete'])->name("client.delete");
@@ -46,4 +44,8 @@ Route::get('/contact', ['middleware' => 'auth', 'uses' => 'ContactController@ind
 Route::post('/contact/save', ['middleware' => 'auth', 'uses' => 'ContactController@save'])->name("contact.save");
 Route::get('/contact/messages', ['middleware' => 'auth', 'uses' => 'ContactController@get'])->name("contact.messages");
 Route::post('/contact/delete/{id}', ['middleware' => 'auth', 'uses' => 'ContactController@delete'])->name("contact.delete");
+Route::get('/top5/animals',['middleware' => 'auth', 'uses' => 'Top5Controller@animals'])->name("top5.animals");
+Route::get('/top5/products',['middleware' => 'auth', 'uses' => 'Top5Controller@products'])->name("top5.products");
+Route::post('/product/like/{id}', ['middleware' => 'auth', 'uses' => 'ProductController@like'])->name("product.like");
+Route::post('/animal/like/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@like'])->name("animal.like");
 Auth::routes();

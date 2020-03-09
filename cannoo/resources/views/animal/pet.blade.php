@@ -10,6 +10,7 @@
 </div>
 
 <div class="container">
+@if((Auth::user()->role == 'admin') or (!$data["animal"]->getAdopted() and Auth::user()->role == 'client') )
     <div class="row justify-content-center">
         <div class="col-md-8" style="padding-top=5px;">
             <div class="card">
@@ -33,10 +34,15 @@
                         </form> 
                     @else
                         <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a>
+                        <form method="POST" action="{{ route('animal.like',$data['animal'] -> id) }}" enctype="multipart/form-data">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-primary">@lang('messages.like')</button>
+                        </form>
                     @endif
                 </div>
             </div>
         </div> 
     </div>
+@endif    
 </div>
 @endsection
