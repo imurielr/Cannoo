@@ -105,4 +105,5 @@
         'welcome_product' => 'Explore our Animal Care products catalog!',
         'welcome_sub' => 'Our goal is to unite animals with their future owners',
         'image' => 'Image',
+        'shoppingCart' => 'View shopping cart',
     ];
