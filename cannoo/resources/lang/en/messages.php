@@ -1,6 +1,8 @@
 <?php 
 
     return [
+        'sorry' => 'Sorry :c',
+        'unavailable' => 'This pet is no available for adoption',
         'deleteMessage' => 'Delete Message',
         'message' => 'Message',
         'messages' => 'Messages',
