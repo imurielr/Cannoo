@@ -60,13 +60,13 @@
 
 <div class="container">
     <select class="form-control">
-    <option selected>@lang('messages.paymentMethod')</option>
-    <option>Visa</option>
-    <option>MasterCard</option>
+        <option selected>@lang('messages.paymentMethod')</option>
+        <option>Visa</option>
+        <option>MasterCard</option>
     </select>
     <br>
 
-    <a class="btn btn-info" href="">@lang('messages.continue')</a>
+    <a class="btn btn-info" href="{{ route('order.create') }}">@lang('messages.continue')</a>
     <a class="btn btn-info" href="{{ route('order.flush') }}">@lang('messages.emptyOrder')</a>
 
 </div>

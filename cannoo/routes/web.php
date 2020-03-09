@@ -36,8 +36,7 @@ Route::post('/animal/save', ['middleware' => 'auth', 'uses' => 'AnimalController
 Route::get('/animal/show/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@pet'])->name("animal.pet");
 Route::post('/animal/erase/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@erase'])->name("animal.erase");
 Route::get('/order', ['middleware' => 'auth', 'uses' => 'OrderController@index'])->name("order.index");
-Route::get('/order/addAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addAnimals'])->name("order.addAnimal");
-Route::get('/order/addItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addItems'])->name("order.addItem");
+Route::get('/order/create', ['middleware' => 'auth', 'uses' => 'OrderController@create'])->name("order.create");
 Route::get('/animal/removeFromOrder/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@deleteFromSession'])->name("animal.desorder");
 Route::get('/animal/addToOrder/{id}', ['middleware' => 'auth', 'uses' => 'AnimalController@addToSession'])->name("animal.order");
 Route::get('/item/create/{id}', ['middleware' => 'auth', 'uses' => 'ItemController@create'])->name("item.create");
