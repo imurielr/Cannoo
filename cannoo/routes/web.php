@@ -42,6 +42,8 @@ Route::get('/order/addAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderCon
 Route::get('/order/addItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addItem'])->name("order.addItem");
 Route::post('/order/deleteAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteAnimal'])->name("order.deleteAnimal");
 Route::get('/order/deleteItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteItem'])->name("order.deleteItem");
-
-
+Route::get('/contact', ['middleware' => 'auth', 'uses' => 'ContactController@index'])->name("contact.index");
+Route::post('/contact/save', ['middleware' => 'auth', 'uses' => 'ContactController@save'])->name("contact.save");
+Route::get('/contact/messages', ['middleware' => 'auth', 'uses' => 'ContactController@get'])->name("contact.messages");
+Route::post('/contact/delete/{id}', ['middleware' => 'auth', 'uses' => 'ContactController@delete'])->name("contact.delete");
 Auth::routes();

@@ -1,6 +1,15 @@
 <?php 
 
     return [
+        'deleteMessage' => 'Delete Message',
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'origin' => 'Your name',
+        'from' => 'From',
+        'write_here' => 'Write yout message here',
+        'subject' => 'Subject',
+        'leave_message' => 'Leave a message',
+        'contact' => 'Contact us',
         'deleteCertificate' => 'Delete certificate',
         'client' => 'Client',
         'makeAdmin' => 'Make administrator',
