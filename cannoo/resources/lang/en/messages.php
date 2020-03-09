@@ -1,6 +1,7 @@
 <?php 
 
     return [
+        'deleteCertificate' => 'Delete certificate',
         'client' => 'Client',
         'makeAdmin' => 'Make administrator',
         'actions' => 'Actions',

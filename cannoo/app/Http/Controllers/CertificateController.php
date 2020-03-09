@@ -25,18 +25,24 @@ class CertificateController extends Controller {
 
     public function save(Request $request) {
         Certificate::validate($request);
-        
+        //Validate client exist
         $client = User::where('email', $request->input('client'))->get();
-
         if ($client->isEmpty()) {
             return back()->with('fail', "The client's email does not exist");
         }
-
         $request->merge(['client' => $client[0]->getId()]);
+        //Change animal status to adopted
+        Animal::where('id',$request['animal'])->update(['adopted' => 1]);
 
         Certificate::create($request->only(["client","animal","date","verified"]));
-
         return back()->with('success','Item created successfully!');
+    }
+
+    public function delete($id) {
+        $info = Certificate::select('animal')->where('id', $id)->get();
+        Animal::where('id',  $info[0]['animal'])->update(['adopted' => 0]);
+       Certificate::where('id', $id)->delete();
+       return redirect('certificate/show');
     }
 }
 ?>

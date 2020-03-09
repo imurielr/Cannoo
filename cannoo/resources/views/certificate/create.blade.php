@@ -24,7 +24,9 @@
                     <label for="animal">@lang('messages.animal'):</label>
                     <select name='animal' id="animal">
                     @foreach($data['animals'] as $index =>$animal)
+                        @if(!$animal->getAdopted())
                         <option value="{{$animal->getId()}}">{{ $animal->getId()}}. {{$animal ->getType()}} {{$animal ->getBreed()}}</option>
+                        @endif
                     @endforeach
                     </select> 
                     <br/> <br/>

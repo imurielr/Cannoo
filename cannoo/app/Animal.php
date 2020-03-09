@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model {
     //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at
-    protected $fillable = ['type','breed','birthDate','vaccinated'];
+    protected $fillable = ['type','breed','birthDate','vaccinated','adopted'];
 
     public function getId() {
         return $this->attributes['id'];
@@ -72,23 +72,22 @@ class Animal extends Model {
         $this->attributes['order'] = $order;
     }
 
-    // public function getImage() {
-    //     return $this->attributes['image'];
-    // }
+    public function getAdopted() {
+        return $this->attributes['adopted'];
+    }
 
-    // public function setImage($image) {
-    //     $this->attributes['image'] = $image;
-    // }
+    public function setAdopted($adopted) {
+        $this->attributes['adopted'] = $adopted;
+    }
+
 
     public static function validate(Request $request) {
         $request->validate([
             "type" => "required",
             "breed" => "required",
-            "birthDate"=>"required",
-            "image" =>"required"
+            "birthDate"=>"required"
         ]);
         $request["vaccinated"]=(bool)$request["vaccinated"];
-        // $request["image"]= $request["image"]->getClientOriginalName();
     }
     
 

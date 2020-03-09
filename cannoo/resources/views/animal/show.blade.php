@@ -6,7 +6,8 @@
 <div class="container">
     <div class="row justify-content-center">
     @foreach($data["animal"] as $indexKey => $pet)
-        <div class="col-md-4" style="padding-top=5px; ">
+        @if((Auth::user()->role == 'admin') or (!$pet->getAdopted() and Auth::user()->role == 'client') )
+        <div class="col-md-4" style="padding-top=5px; "> 
             <div class="card" style="min-width: 350px; min-height: 350px;">
                 <div class="card-header">{{ $pet->getType() }}</div>
                 <div class="card-body"> 
@@ -19,6 +20,7 @@
             </div>
             <br />
         </div>   
+        @endif
     @endforeach    
    
     </div>    
