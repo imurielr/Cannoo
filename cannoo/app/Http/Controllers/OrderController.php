@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller{
-    public function index(){
-        $data = []; //to be sent to the view
-        $data["animals"] = [];
-        $data["items"] = [];
+    public function index(Request $request){
+        //$data = $request->session()->all();
+        //$data = []; //to be sent to the view
+        $data["animals"] = []; //sacar de sesión
+        $data["items"] = $request->session()->get("items");
         return view('order.index')->with("data",$data);
     }
 

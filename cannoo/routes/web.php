@@ -41,5 +41,9 @@ Route::get('/order/addItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderContr
 Route::post('/order/deleteAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteAnimal'])->name("order.deleteAnimal");
 Route::get('/order/deleteItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteItem'])->name("order.deleteItem");
 
+Route::get('/item/create/{id}', ['middleware' => 'auth', 'uses' => 'ItemController@create'])->name("item.create");
+
+Route::post('/session/save', ['middleware' => 'auth', 'uses' => 'SessionController@save'])->name("session.save");
+Route::post('/session/delete', ['middleware' => 'auth', 'uses' => 'SessionController@delete'])->name("session.delete");
 
 Auth::routes();

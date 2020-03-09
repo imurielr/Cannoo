@@ -41,6 +41,10 @@ class Product extends Model {
         $this->attributes['description'] = $description;
     }
 
+    public function item(){
+        return $this->hasMany(Item::class);
+    }
+
     public static function validate(Request $request) {
         $request->validate([
             "type" => "required",

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model{
+class Order extends Model{
     //attributes id, client, animals, items, confirmed, totalPrice, payment, created_at, updated_at
-    protected $fillable = ['animals','items','payment'];
+    protected $fillable = ['client','animals','items','payment'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -27,11 +27,11 @@ class Client extends Model{
     public function animals(){
         return $this->hasMany(Animal::class);
     }
-    /*
+    
     public function items(){
         return $this->hasMany(Item::class);
     }
-    */
+    
     public function getConfirmed(){
         return $this->attributes['confirmed'];
     }
@@ -59,7 +59,8 @@ class Client extends Model{
     public static function validate(Request $request){
         $request->validate([
             "client" => "required",
-            "confirmed" => "required",
+            "animals" => "required",
+            "items" => "required",
             "payment" => "required"
         ]);
     }

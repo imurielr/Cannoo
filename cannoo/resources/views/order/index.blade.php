@@ -35,15 +35,17 @@
         </thead> 
         <tbody>
             @foreach($data["items"] as $item)
+            {{ Session::get('test') }}
+            <!--
             <tr>
-                <td scope="row">($item -> product as $product) - {{ $product -> getType() }}</td>
-                <td>($item -> product as $product) - {{ $product -> getPrice() }}</td>
+                <td scope="row">($item->getProduct() as $product) - {{ $product -> getType() }}</td>
+                <td>($item->getProduct() as $product) - {{ $product -> getPrice() }}</td>
                 <td>
                 <form method="POST" action="{{ route('order.deleteItem', $item -> id) }}">
                     @csrf
                     <input class="btn btn-warning" type="submit" value="@lang('messages.delete')"/>
                 </form> 
-            </tr>
+            </tr>-->
             @endforeach
         </tbody>
     </table>
