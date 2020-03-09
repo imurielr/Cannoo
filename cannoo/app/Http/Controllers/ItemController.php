@@ -24,6 +24,14 @@ class ItemController extends Controller
         $request->session()->put('items.'.$id, $item);       
         return redirect()->route('order.index');
     }
+
+    //Ayuda a completarlo plis
+    public function save(Request $request){
+        
+        //guardar esto en BD
+        $items = $request->session()->get('items');
+        return redirect()->route('order.create');
+    }
     
     public function delete(Request $request, $id){
         $item = $request->session()->get('items.'.$id);

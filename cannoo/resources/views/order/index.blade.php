@@ -66,7 +66,7 @@
     </select>
     <br>
 
-    <a class="btn btn-info" href="{{ route('order.create') }}">@lang('messages.continue')</a>
+    <a class="btn btn-info" href="{{ route('item.save') }}">@lang('messages.continue')</a>
     <a class="btn btn-info" href="{{ route('order.flush') }}">@lang('messages.emptyOrder')</a>
 
 </div>
