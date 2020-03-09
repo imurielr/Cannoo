@@ -16,6 +16,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/customStyle.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 </head>
 <body>
     <div id="app">

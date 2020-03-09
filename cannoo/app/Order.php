@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model{
+class Order extends Model{
     //attributes id, client, animals, items, confirmed, totalPrice, payment, created_at, updated_at
-    protected $fillable = ['animals','items','payment'];
+    protected $fillable = ['client','animals','items','payment'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -23,15 +23,39 @@ class Client extends Model{
     public function setClient($client){
         $this->attributes['client'] = $client;
     }
+
+    public function getAnimals(){
+        return $this->attributes['animals'];
+    }
+
+    public function setAnimals(Array $animal){
+        $this->attributes['animals'] = $animals;
+    }
+
+    public function addAnimal($animal) {
+        array_push($this->attributes['animals'], $animal);
+    }
     
     public function animals(){
         return $this->hasMany(Animal::class);
     }
-    /*
+    
     public function items(){
         return $this->hasMany(Item::class);
     }
-    */
+
+    public function getItems(){
+        return $this->attributes['items'];
+    }
+
+    public function setItems(Array $items){
+        $this->attributes['items'] = $items;
+    }
+
+    public function addItem($item) {
+        array_push($this->attributes['items'], $item);
+    }
+    
     public function getConfirmed(){
         return $this->attributes['confirmed'];
     }
@@ -59,7 +83,8 @@ class Client extends Model{
     public static function validate(Request $request){
         $request->validate([
             "client" => "required",
-            "confirmed" => "required",
+            "animals" => "required",
+            "items" => "required",
             "payment" => "required"
         ]);
     }

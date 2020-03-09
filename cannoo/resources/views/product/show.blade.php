@@ -16,8 +16,7 @@
                     </a>    
                     <br/><br/>
                         <b>${{$product->getPrice()}}</b>
-                        <a class="btn btn-info float-right" href="#">@lang('messages.addToOrder')</a> 
-                        
+                        <a class="btn btn-info float-right" href="{{ route('item.create', $product->getId()) }}">@lang('messages.addToOrder')</a>                        
                         
                 </div>
             </div>
