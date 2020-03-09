@@ -105,4 +105,5 @@
         'welcome_product' => '¡Explora nuestro catálogo de productos para el cuidado de tu mascota!',
         'welcome_sub' => 'Somos una empresa dedicada a unir animales con sus futuros dueños',
         'image' => 'Imagen',
+        'shoppingCart' => 'Ver carrito de compras',
     ];
