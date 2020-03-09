@@ -46,5 +46,11 @@ class AnimalController extends Controller {
         return redirect('animal/show');
     }
 
+    public function like($id){
+        $likes = Animal::select('likes')->where('id', $id)->get();
+        Animal::where('id',  $id)->update(['likes' => $likes[0]['likes']+1]);
+        return redirect()->route('animal.show');
+    }
+
 }
 ?>

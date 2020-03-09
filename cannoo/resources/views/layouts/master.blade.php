@@ -77,6 +77,13 @@
                                 <a class="dropdown-item" href="{{ route('animal.create') }}">@lang('messages.addPet')</a>
                             @endif
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('messages.top5')</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('top5.animals') }}">@lang('messages.animals')</a>
+                            <a class="dropdown-item" href="{{ route('top5.products') }}">@lang('messages.products')</a>
+                        </li>
                         
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

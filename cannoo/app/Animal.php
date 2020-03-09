@@ -5,8 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model {
-    //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at
-    protected $fillable = ['type','breed','birthDate','vaccinated','adopted'];
+    //attributes id, type, breed, birthDate, vaccinated, certificate, order, created_at, updated_at, adopted, likes
+    protected $fillable = ['type','breed','birthDate','vaccinated','adopted','likes'];
 
     public function getId() {
         return $this->attributes['id'];
@@ -78,6 +78,18 @@ class Animal extends Model {
 
     public function setAdopted($adopted) {
         $this->attributes['adopted'] = $adopted;
+    }
+
+    public function getLikes() {
+        return $this->attributes['likes'];
+    }
+
+    public function setLikes($likes) {
+        $this->attributes['likes'] = $likes;
+    }
+
+    public function addLike() {
+        $this->attributes['likes'] = $likes+1;
     }
 
 
