@@ -24,22 +24,6 @@ class ItemController extends Controller
         $request->session()->put('items.'.$id, $item);       
         return redirect()->route('order.index');
     }
-
-    public function save(Request $request,$id){
-        $items = $request->session()->get('items');
-        if ($items) {
-            foreach ($items as $item) {
-                $item = Item::make([
-                    'product' => $item->getProduct(),
-                    'quantity' => $item->getQuantity(),
-                    'order' => $id
-                ]);
-                $item->save();
-            }
-        }
-
-        //return redirect()->route('order.create');
-    }
     
     public function delete(Request $request, $id){
         $item = $request->session()->get('items.'.$id);

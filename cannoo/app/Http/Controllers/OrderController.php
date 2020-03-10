@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Order;
-use App\HttP\ItemController;
+use App\Item;
+use App\Animal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller{
     public function index(Request $request){
@@ -37,36 +37,30 @@ class OrderController extends Controller{
         return $items;
     }
 
-
-
     public function create(Request $request){
 
         $order = Order::make([
-            'client' => auth()->user()->getName(),
-            'animals' => [],
-            'items' => [],
+            'client' => auth()->user()->getId(),
             'payment' => $request->input('payment')
         ]);
-
         $order->save();
-       /*  ItemController::save($request, $order->getId());
 
-        echo($request);
+        $id = $order->getId();
+
         $animals = $this->getAnimals($request);
-        if ($animals) {
-            foreach ($animals as $animal) {
-                $order->addAnimal($animal->getId());
-            }
+        foreach ($animals as $animal) {
+            $animal->setOrder($id);
+            $animal->save();
         }
         $items = $this->getItems($request);
-        if ($items) {
-            foreach ($items as $item) {
-                $order->addItem($item->getProduct()->getId());
-            }
+        foreach ($items as $item) {
+            $idProd = $item->getProduct()->getId();
+            $item->setProduct($idProd);
+            $item->setOrder($id);
+            $item->save();
         }
-
         $order->save();
-        redirect()->route('home.index'); */
+        return redirect()->route('order.flush');
     }
 
     public function flush(Request $request){
