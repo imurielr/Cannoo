@@ -66,6 +66,11 @@ class User extends Authenticatable
     public function setRole($role) {
         $this->attributes['role'] = $role;
     }
+
+    public function hasRole($role) {
+        return $this->getRole() === $role;
+    }
+
     public function getPhone() {
         return $this->attributes['phone'];
     }

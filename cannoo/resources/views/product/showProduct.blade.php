@@ -23,17 +23,17 @@
                         </p>
 
                         @if (Auth::user()->role == 'admin')
-                            <form method="POST" action="{{ route('product.delete', $data['product'] -> id) }}">
+                            <form method="POST" action="{{ route('product.delete', $data['product']->getId()) }}">
                                 @csrf
                                 <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteProduct')"/>
                             </form>
 
-                            <form  action="{{ route('product.update', $data['product'] -> id) }}">
+                            <form  action="{{ route('product.update', $data['product']->getId()) }}">
                                 <input class="btn btn-info float-right" type="submit" value="@lang('messages.changeDescription')" style="margin-right:5px;"/>
                             </form>
                         @else
-                            <a class="btn btn-info float-right" href="{{ route('item.create', $data['product']->id) }}">@lang('messages.addToOrder')</a>
-                            <form method="POST" action="{{ route('product.like',$data['product'] -> id) }}" enctype="multipart/form-data">
+                            <a class="btn btn-info float-right" href="{{ route('item.create', $data['product']->getId()) }}">@lang('messages.addToOrder')</a>
+                            <form method="POST" action="{{ route('product.like',$data['product']->getId()) }}" enctype="multipart/form-data">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-primary">@lang('messages.like')</button>
                             </form>

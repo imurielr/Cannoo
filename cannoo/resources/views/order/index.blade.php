@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+@include('util.message')
+
 <div class="container">
     <table class="table table-hover">
         <thead>
@@ -61,9 +63,12 @@
 
     
     <div class="container">
-        <form action="{{ route('order.create') }}" method="post">
+        <b>@lang('messages.paymentMethod')</b>
+        <br/>
+        <form method="POST" action="{{ route('order.create', ['totalPrice' => $data['total']]) }}">
             @csrf
             <select class="form-control" name="payment">
+                <optgroup label='@lang('messages.paymentMethod')'>
                 <option value="Visa">Visa</option>
                 <option value="Mastercard">MasterCard</option>
             </select>

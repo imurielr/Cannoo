@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\Item;
+use App\Certificate;
 use App\Animal;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,13 @@ class OrderController extends Controller{
     }
 
     public function create(Request $request){
+        $animals = $this->getAnimals($request);
+        $items = $this->getItems($request);
+        
+        if (!$animals && !$items) {
+            return back()->with('fail', 'Please add some elements to the shopping cart');
+        }
+
 
         $total = $request->session()->get("total");
         $order = Order::make([
@@ -46,16 +54,28 @@ class OrderController extends Controller{
             'payment' => $request->input('payment'),
             'totalPrice' => $total
         ]);
+
+        $order->setTotalPrice($request->query('totalPrice'));
+
         $order->save();
 
         $id = $order->getId();
 
-        $animals = $this->getAnimals($request);
+        
         foreach ($animals as $animal) {
             $animal->setOrder($id);
             $animal->save();
+
+            Certificate::make([
+                'client' => auth()->user()->getId(),
+                'animal' => $animal->getId(),
+                'date' => date("Y/m/d"),
+                'verified' => 1
+            ])->save();
+
+            Animal::where('id', $animal->getId())->update(['adopted' => 1]);
         }
-        $items = $this->getItems($request);
+
         foreach ($items as $item) {
             $idProd = $item->getProductAux()->getId();
             $item->setProduct($idProd);
@@ -92,6 +112,6 @@ class OrderController extends Controller{
     public function flush(Request $request){
         $request->session()->forget('animals');
         $request->session()->forget('items');
-        return redirect()->route('home.index');
+        return redirect()->route('order.index');
     }
 }
