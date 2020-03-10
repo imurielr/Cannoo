@@ -82,9 +82,6 @@ class Order extends Model{
 
     public static function validate(Request $request){
         $request->validate([
-            "client" => "required",
-            "animals" => "required",
-            "items" => "required",
             "payment" => "required"
         ]);
     }

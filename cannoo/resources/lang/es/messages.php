@@ -2,6 +2,7 @@
 
     return [
         'deleteMessage' => 'Eliminar Mensaje',
+        'orderSummary' => 'Resumen de la orden',
         'message' => 'Mensaje',
         'messages' => 'Mensajes',
         'origin' => 'Su nombre',

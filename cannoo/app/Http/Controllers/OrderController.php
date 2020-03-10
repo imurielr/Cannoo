@@ -13,7 +13,7 @@ class OrderController extends Controller{
         $data["items"] = $this->getItems($request);
         $total =0;
         foreach($data['items'] as $array => $item){
-            $total+= $item->getTotalPrice();
+            $total+= $item->getTotalPriceAux();
         }
         $data['total'] =$total;
         return view('order.index')->with("data", $data);
@@ -54,13 +54,34 @@ class OrderController extends Controller{
         }
         $items = $this->getItems($request);
         foreach ($items as $item) {
-            $idProd = $item->getProduct()->getId();
+            $idProd = $item->getProductAux()->getId();
             $item->setProduct($idProd);
             $item->setOrder($id);
             $item->save();
         }
         $order->save();
-        return redirect()->route('order.flush');
+        return redirect()->route('order.showOrder', ['id' => $id]);
+    }
+
+    public function showOrder(Request $request, $id){
+        $request->session()->forget('animals');
+        $request->session()->forget('items');
+
+        $data = [];
+        $order = Order::findOrFail($id);
+
+        $data["title"] = "Order";
+        $data["order"] = $order;
+        $data["animals"] = Animal::where('order_id', $id)->get();
+        $data["items"] = Item::where('order_id', $id)->with('product')->get();
+        return view('order.detail')->with("data", $data);
+    }
+
+    
+    public function show(){
+        $client = auth()->user()->getId();
+        $data["orders"] = Order::where('client', $client)->get();
+        //Crear la vista de las órdenes pero sin mucho detalle, que solo diga la fecha y el precio total
     }
 
     public function flush(Request $request){
