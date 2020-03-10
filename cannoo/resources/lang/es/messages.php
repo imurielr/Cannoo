@@ -1,6 +1,8 @@
 <?php 
 
     return [
+        'sorry' => 'Lo sentimos :c',
+        'unavailable' => 'Esta mascota no está disponible para ser adoptada',
         'deleteMessage' => 'Eliminar Mensaje',
         'message' => 'Mensaje',
         'messages' => 'Mensajes',
@@ -103,4 +105,5 @@
         'welcome_product' => '¡Explora nuestro catálogo de productos para el cuidado de tu mascota!',
         'welcome_sub' => 'Somos una empresa dedicada a unir animales con sus futuros dueños',
         'image' => 'Imagen',
+        'shoppingCart' => 'Ver carrito de compras',
     ];

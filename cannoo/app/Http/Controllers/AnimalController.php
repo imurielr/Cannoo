@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Interfaces\ImageStorage;
 use App\Animal;
+use App\Certificate;
 
 class AnimalController extends Controller {
     
@@ -54,6 +55,7 @@ class AnimalController extends Controller {
     }
 
     public function erase($id) {
+        Certificate::where('animal',$id)->delete();
         Animal::where('id', $id)->delete();
         return redirect('animal/show');
     }
