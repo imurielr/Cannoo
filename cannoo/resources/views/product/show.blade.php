@@ -16,7 +16,9 @@
                     </a>    
                     <br/><br/>
                         <b>${{$product->getPrice()}}</b>
-                        <a class="btn btn-info float-right" href="{{ route('item.create', $product->getId()) }}">@lang('messages.addToOrder')</a>                        
+                        @if (Auth::user()->role != 'admin')
+                            <a class="btn btn-info float-right" href="{{ route('item.create', $product->getId()) }}">@lang('messages.addToOrder')</a> 
+                        @endif                       
                         
                 </div>
             </div>

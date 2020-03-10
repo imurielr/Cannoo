@@ -15,7 +15,9 @@
                         <img width="100%" height="100%" object-fit= "cover" src="{{ URL::to('/') }}/storage/uploads/animal/{{$pet->getId()}}.png">
                     </a>    
                     <br/><br/>
-                    <a class="btn btn-info float-right" href="{{ route('animal.order', $pet -> id) }}">@lang('messages.addToOrder')</a>
+                    @if (Auth::user()->role != 'admin')
+                        <a class="btn btn-info float-right" href="{{ route('animal.order', $pet -> id) }}">@lang('messages.addToOrder')</a>
+                    @endif
                 </div>
             </div>
             <br />
