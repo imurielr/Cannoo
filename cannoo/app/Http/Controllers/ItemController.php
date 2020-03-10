@@ -17,7 +17,7 @@ class ItemController extends Controller
 
         } else {
             $item = Item::make([
-                'product' => $product,
+                'product_id' => $product,
                 'quantity' => 1,
             ]);
         }

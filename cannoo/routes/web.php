@@ -46,6 +46,8 @@ Route::post('/session/save', ['middleware' => 'auth', 'uses' => 'SessionControll
 Route::post('/session/delete', ['middleware' => 'auth', 'uses' => 'SessionController@delete'])->name("session.delete");
 Route::get('/flush', ['middleware' => 'auth', 'uses' => 'OrderController@flush'])->name("order.flush");
 Route::get('/order/addAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addAnimal'])->name("order.addAnimal");
+Route::get('/order/showOrder/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@showOrder'])->name("order.showOrder");
+Route::get('/order/show', ['middleware' => 'auth', 'uses' => 'OrderController@show'])->name("order.show");
 Route::get('/order/addItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@addItem'])->name("order.addItem");
 Route::post('/order/deleteAnimal/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteAnimal'])->name("order.deleteAnimal");
 Route::get('/order/deleteItem/{id}', ['middleware' => 'auth', 'uses' => 'OrderController@deleteItem'])->name("order.deleteItem");

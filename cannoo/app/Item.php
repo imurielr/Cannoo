@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model{
     //attributes id, product, totalPrice, quantity, order_id, created_at, updated_at
-    protected $fillable = ['product','quantity','order_id'];
+    protected $fillable = ['product_id','quantity','order_id'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -21,15 +21,29 @@ class Item extends Model{
     }
 
     public function getProduct(){
-        return $this->attributes['product'];
+        return $product = Product::findOrFail($this->attributes['product_id']);
+    }
+
+    public function getProductAux(){
+        return $this->attributes['product_id'];
     }
 
     public function setProduct($product){
-        $this->attributes['product'] = $product;
+        $this->attributes['product_id'] = $product;
     }
 
-    public function getTotalPrice(){ 
-        return $this->attributes['quantity'] * $this->attributes['product']->getPrice();
+    public function getTotalPriceAux(){
+        return $this->attributes['quantity'] * $this->attributes['product_id']->getPrice();
+    }
+
+    public function getTotalPrice(){
+        $product = Product::findOrFail($this->attributes['product_id']);
+        return $this->attributes['quantity'] * $product->getPrice();
+    }
+
+    public function setTotalPrice(){
+        $product = Product::findOrFail($this->attributes['product_id']);
+        $this->attributes['totalPrice'] = $product->getPrice() * $this->attributes['quantity'];
     }
 
     public function getQuantity(){

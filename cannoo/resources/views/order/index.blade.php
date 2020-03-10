@@ -39,11 +39,11 @@
         <tbody>
             @foreach($data["items"] as $item)
             <tr>
-                <td scope="row">{{ ($item -> getProduct() -> getType()) }}</td>
+                <td scope="row">{{ ($item -> getProductAux() -> getType()) }}</td>
                 <td scope="row">{{ ($item -> getQuantity()) }}</td>
-                <td scope="row">{{ ($item -> getProduct() -> getPrice()) }}</td>
-                <td scope="row">{{ ($item -> getTotalPrice() ) }}</td>
-                <td><a class="btn btn-warning" href="{{ route('item.delete', $item -> getProduct() -> getId()) }}">@lang('messages.deleteProduct')</a></td>
+                <td scope="row">{{ ($item -> getProductAux() -> getPrice()) }}</td>
+                <td scope="row">{{ ($item -> getTotalPriceAux() ) }}</td>
+                <td><a class="btn btn-warning" href="{{ route('item.delete', $item -> getProductAux() -> getId()) }}">@lang('messages.deleteProduct')</a></td>
             <tr>
             @endforeach
             <tr>
