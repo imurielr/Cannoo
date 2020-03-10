@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model{
     //attributes id, client, animals, items, confirmed, totalPrice, payment, created_at, updated_at
-    protected $fillable = ['client','animals','items','payment'];
+    protected $fillable = ['client','payment'];
 
     public function getId(){
         return $this->attributes['id'];

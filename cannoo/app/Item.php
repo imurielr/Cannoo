@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model{
-    //attributes id, product, quantity, created_at, updated_at
-    protected $fillable = ['product','quantity'];
+    //attributes id, product, totalPrice, quantity, order_id, created_at, updated_at
+    protected $fillable = ['product','quantity','order_id'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -50,6 +50,14 @@ class Item extends Model{
     
     public function order(){
         return $this->belongsto(Order::class);
+    }
+
+    public function getOrder() {
+        return $this->attributes['order_id'];
+    }
+
+    public function setOrder($order_id) {
+        $this->attributes['order_id'] = $order_id;
     }
 
     public static function validate(Request $request){
