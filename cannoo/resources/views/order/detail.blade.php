@@ -11,7 +11,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ $animal->getType() }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ $animal->getBreed() }}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">{{ $animal->getBirthDate() }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@lang('messages.birth') {{ ": ".$animal->getBirthDate() }}</h6>
         </div>
     </div>
     @endforeach
@@ -26,7 +26,7 @@
     </div>
     @endforeach
 
-    <a href="{{ route('home.index') }}" class="btn btn-info">@lang('messages.accept')</a>
+    <a href="{{ route('order.show') }}" class="btn btn-info">@lang('messages.accept')</a>
 </div>
 
 @endsection

@@ -3,6 +3,8 @@
     return [
         'deleteMessage' => 'Delete Message',
         'orderSummary' => 'Order summary',
+        'yourOrders' => 'Your orders',
+        'viewOrders' => 'View orders',
         'message' => 'Message',
         'messages' => 'Messages',
         'origin' => 'Your name',

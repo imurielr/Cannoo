@@ -3,6 +3,8 @@
     return [
         'deleteMessage' => 'Eliminar Mensaje',
         'orderSummary' => 'Resumen de la orden',
+        'yourOrders' => 'Tus órdenes realizadas',
+        'viewOrders' => 'Ver órdenes',
         'message' => 'Mensaje',
         'messages' => 'Mensajes',
         'origin' => 'Su nombre',

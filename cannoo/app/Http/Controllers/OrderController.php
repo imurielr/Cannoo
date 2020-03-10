@@ -15,6 +15,7 @@ class OrderController extends Controller{
         foreach($data['items'] as $array => $item){
             $total+= $item->getTotalPriceAux();
         }
+        $request->session()->put("total", $total); 
         $data['total'] =$total;
         return view('order.index')->with("data", $data);
     }
@@ -39,9 +40,11 @@ class OrderController extends Controller{
 
     public function create(Request $request){
 
+        $total = $request->session()->get("total");
         $order = Order::make([
             'client' => auth()->user()->getId(),
-            'payment' => $request->input('payment')
+            'payment' => $request->input('payment'),
+            'totalPrice' => $total
         ]);
         $order->save();
 
@@ -80,8 +83,10 @@ class OrderController extends Controller{
     
     public function show(){
         $client = auth()->user()->getId();
-        $data["orders"] = Order::where('client', $client)->get();
-        //Crear la vista de las órdenes pero sin mucho detalle, que solo diga la fecha y el precio total
+
+        $data["title"] = "Orders";
+        $data["orders"] = Order::where('client', $client)->orderBy('created_at')->get();
+        return view('order.show')->with("data", $data);
     }
 
     public function flush(Request $request){

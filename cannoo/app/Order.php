@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model{
     //attributes id, client, animals, items, confirmed, totalPrice, payment, created_at, updated_at
-    protected $fillable = ['client','payment'];
+    protected $fillable = ['client','payment','totalPrice'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -78,6 +78,10 @@ class Order extends Model{
     
     public function setPayment($payment){
         $this->attributes['payment'] = $payment;
+    }
+
+    public function getDate(){
+        return $this->attributes['created_at']; 
     }
 
     public static function validate(Request $request){
