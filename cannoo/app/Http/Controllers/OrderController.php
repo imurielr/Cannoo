@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Item;
+use App\Animal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller{
     public function index(Request $request){
         $data["animals"] = $this->getAnimals($request);
         $data["items"] = $this->getItems($request);
+        $total =0;
+        foreach($data['items'] as $array => $item){
+            $total+= $item->getTotalPrice();
+        }
+        $data['total'] =$total;
         return view('order.index')->with("data", $data);
     }
 
@@ -31,39 +37,30 @@ class OrderController extends Controller{
         return $items;
     }
 
-
-    //Este método debería dar sin problemas si se completa
     public function create(Request $request){
 
-        //Me cansé, ayuda acá porf
         $order = Order::make([
-            // Que el cliente sea el usuario activo
-            'client' => auth()->user()->getName(),
-
-            'animals' => [],
-            'items' => [],
-
-            //Que el payment sea el elegido en order.index
-            //(en la parte de abajo están las entradas pero no sé como relacionarlas acá)
-            'payment' => $request->input('payment'),
+            'client' => auth()->user()->getId(),
+            'payment' => $request->input('payment')
         ]);
-        // print_r("hola".$order->getPayment());
-        print_r($request);
+        $order->save();
+
+        $id = $order->getId();
+
         $animals = $this->getAnimals($request);
-        if ($animals) {
-            foreach ($animals as $animal) {
-                $order->addAnimal($animal->getId());
-            }
+        foreach ($animals as $animal) {
+            $animal->setOrder($id);
+            $animal->save();
         }
         $items = $this->getItems($request);
-        if ($items) {
-            foreach ($items as $item) {
-                $order->addItem($item->getProduct()->getId());
-            }
+        foreach ($items as $item) {
+            $idProd = $item->getProduct()->getId();
+            $item->setProduct($idProd);
+            $item->setOrder($id);
+            $item->save();
         }
-
-        //Ya este debería meterlo en la BD
         $order->save();
+        return redirect()->route('order.flush');
     }
 
     public function flush(Request $request){
