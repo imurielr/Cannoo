@@ -24,7 +24,7 @@ Descargue [composer](https://getcomposer.org/download/) para instalar las depend
 $ composer install
 ```
 
-Luego debe acceder ```phpmyadmin``` y crear una nueva base de datos llamada ```cannoodb``` o si lo va a hacer directamente con mysql:
+Luego debe acceder ```http://localhost/phpmyadmin``` y crear una nueva base de datos llamada ```cannoodb``` o si lo va a hacer directamente con mysql:
 
 ```bash
 $ mysql -u <usuario> -p
@@ -48,4 +48,4 @@ $ php artisan serve
 
 y diríjase a ```http://localhost:8000/```
 
-En caso de utilizar XAMPP o WAMPP ubique el repositorio en ```htdocs``` y diríjase a ```http://localhost/Cannoo/cannoo/```.
+En caso de utilizar XAMPP o WAMPP ubique el repositorio en ```htdocs``` y diríjase a ```http://localhost/Cannoo/cannoo/public/```.
