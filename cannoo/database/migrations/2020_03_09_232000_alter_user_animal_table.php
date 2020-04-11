@@ -14,11 +14,11 @@ class AlterUserAnimalTable extends Migration
     public function up()
     {
         Schema::table('animals', function (Blueprint $table) {
-            $table->dropColumn('role');
+           // $table->dropColumn('role');
         });
         
         Schema::table('users', function (Blueprint $table) {
-            $table->text('role')->nullable();
+           // $table->text('role')->nullable();
         });
     }
 
