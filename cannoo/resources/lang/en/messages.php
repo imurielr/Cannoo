@@ -53,6 +53,7 @@
         'rememberMe' => 'Remember Me',
         'pets' => 'Pets',
         'showPets' => 'Show Pets',
+        'showPet' => 'Show Pet',
         'addPet' => 'Create Pet',
         'vaccinated' => 'Vaccinated',
         'date_form' => 'Enter date ',
@@ -109,4 +110,9 @@
         'welcome_sub' => 'Our goal is to unite animals with their future owners',
         'image' => 'Image',
         'shoppingCart' => 'View shopping cart',
+        'success' => 'Item created successfully!',
+        'nomail' => "The client's email does not exist" ,
+        'mess' => 'Message sent succesfully!',
+        'messages' => 'Messages',
+        'addItems' => 'Please add some elements to the shopping cart',
     ];

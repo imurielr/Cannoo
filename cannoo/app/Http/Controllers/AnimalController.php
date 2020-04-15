@@ -6,19 +6,20 @@ use Illuminate\Http\Request;
 use App\Interfaces\ImageStorage;
 use App\Animal;
 use App\Certificate;
+use Lang;
 
 class AnimalController extends Controller {
     
     public function show() {
         $data = []; //to be sent to the view
-        $data["title"] = "Ver Mascotas";
+        $data["title"] = Lang::get('messages.showPets');
         $data["animal"] = Animal::all();
         return view('animal.show')->with("data",$data);
     }
 
     public function pet($id) {
         $data = []; //to be sent to the view
-        $data["title"] = "Pet";
+        $data["title"] = Lang::get('messages.showPet');
         $data["animal"] = Animal::findOrFail($id);
         return view('animal.pet')->with("data",$data);
     }
@@ -26,7 +27,7 @@ class AnimalController extends Controller {
 
     public function create() {
         $data = []; //to be sent to the view
-        $data["title"] = "Crear Mascota";
+        $data["title"] =  Lang::get('messages.addPet');
         return view('animal.create')->with("data",$data);
     }
 
@@ -39,7 +40,7 @@ class AnimalController extends Controller {
         $storeInterface->store($request, "animal", $animal->getId());
 
 
-        return back()->with('success','Item created successfully!');
+        return back()->with('success',Lang::get('messages.success'));
     }
 
     public function addToSession(Request $request, $id){

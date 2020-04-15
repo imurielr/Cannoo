@@ -7,6 +7,7 @@ use App\Item;
 use App\Certificate;
 use App\Animal;
 use Illuminate\Http\Request;
+use Lang;
 
 class OrderController extends Controller{
     public function index(Request $request){
@@ -44,9 +45,8 @@ class OrderController extends Controller{
         $items = $this->getItems($request);
         
         if (!$animals && !$items) {
-            return back()->with('fail', 'Please add some elements to the shopping cart');
+            return back()->with('fail', Lang::get('messages.addItems'));
         }
-
 
         $total = $request->session()->get("total");
         $order = Order::make([
@@ -56,11 +56,8 @@ class OrderController extends Controller{
         ]);
 
         $order->setTotalPrice($request->query('totalPrice'));
-
         $order->save();
-
         $id = $order->getId();
-
         
         foreach ($animals as $animal) {
             $animal->setOrder($id);

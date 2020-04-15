@@ -53,6 +53,7 @@
         'rememberMe' => 'Recordarme',
         'pets' => 'Mascotas',
         'showPets' => 'Ver Mascotas',
+        'showPet' => 'Ver Mascota',
         'addPet' => 'Crear Mascota',
         'vaccinated' => 'Vacunado',
         'breed_form' => 'Ingrese Raza',
@@ -109,4 +110,9 @@
         'welcome_sub' => 'Somos una empresa dedicada a unir animales con sus futuros dueños',
         'image' => 'Imagen',
         'shoppingCart' => 'Ver carrito de compras',
+        'success' => '¡Item agregado exitosamente!',
+        'nomail' => "El email de este cliente no existe" ,
+        'mess' => 'Mensaje enviado exitosamente!',
+        'messages' => 'Mensajes',
+        'addItems' => 'Por favor añada items al carrito de compras',
     ];

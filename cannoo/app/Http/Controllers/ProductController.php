@@ -5,6 +5,7 @@
     use Illuminate\Http\Request;
     use App\Interfaces\ImageStorage;
     use App\Product;
+    use Lang;
 
     class ProductController extends Controller {
 
@@ -20,13 +21,13 @@
             $storeInterface->store($request, "product", $product->getId());
 
 
-            return back()->with('success','Item created successfully!');
+            return back()->with('success',Lang::get('messages.success'));
         }
 
         public function show() {
             $data = []; // Data to be sent to de view
 
-            $data["title"] = "Products";
+            $data["title"] = Lang::get('messages.products');
             $data["products"] = Product::all();
 
             return view('product.show')->with("data", $data);
