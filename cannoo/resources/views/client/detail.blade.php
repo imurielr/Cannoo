@@ -1,14 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <a class="btn btn-info" href="{{ route('client.show') }}">
-        @lang('messages.showClients')
-    </a>
-</div>
-<br/>
 
 <div class="container">
+
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <a class="breadcrumb-item" href="{{ route('client.show') }}">@lang('messages.clients')</a>
+        <span class="breadcrumb-item active">{{ $client->getName() }}</span>
+    </nav>
+
     <div>
         <table class="table table-striped">
             <thead>

@@ -115,4 +115,5 @@
         'mess' => 'Mensaje enviado exitosamente!',
         'messages' => 'Mensajes',
         'addItems' => 'Por favor añada items al carrito de compras',
+        'home' => 'Inicio',
     ];

@@ -4,7 +4,10 @@
 
 @section('content')
 <div class="container">
-
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <span class="breadcrumb-item active">@lang('messages.certificates')</span>
+    </nav>
     @foreach($data["certificates"] as $index => $certificate)
         @if ((Auth::user()->role == 'admin') or (Auth::user()->name == $certificate->getClient()))
         <div class="col-md-8" style="padding-top=5px;">

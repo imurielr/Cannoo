@@ -3,13 +3,15 @@
 @section("title", $data["title"])
 
 @section('content')
-<div class="container">
-    <a class="btn btn-info" href="{{ route('animal.show') }}">
-        @lang('messages.showPets')
-    </a>
-</div>
 
 <div class="container">
+
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <a class="breadcrumb-item" href="{{ route('animal.show') }}">@lang('messages.pets')</a>
+        <span class="breadcrumb-item active">{{ $data['animal']->getType() }}</span>
+    </nav>
+
 @if((Auth::user()->role == 'admin') or (!$data["animal"]->getAdopted() and Auth::user()->role == 'client') )
     <div class="row justify-content-center">
         <div class="col-md-8" style="padding-top=5px;">
