@@ -18,8 +18,9 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('product.updateDescription', $data['product'] -> getId()) }}">
                             @csrf
-                            <input type="text" placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}" />
-                            <input type="submit" value="@lang('messages.updateDescription')" />
+                            <textarea placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}" rows="4" cols="50">{{$data['product']->getDescription()}}</textarea>
+                            <br>
+                            <input class="btn btn-info" type="submit" value="@lang('messages.updateDescription')" />
                         </form>
                     </div>
                 </div>
