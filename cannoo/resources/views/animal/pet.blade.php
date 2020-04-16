@@ -30,10 +30,7 @@
                     @endif
 
                     @if (Auth::user()->role == 'admin')
-                        <form method="POST" action="{{ route('animal.erase', $data['animal'] -> id) }}">
-                            @csrf
-                            <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deletePet')"/>
-                        </form> 
+                        <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal"/>@lang('messages.deletePet')<button/>
                     @else
                         <a class="btn btn-info float-right" href="{{ route('animal.order', $data['animal'] -> id) }}">@lang('messages.addToOrder')</a>
                         <form method="POST" action="{{ route('animal.like',$data['animal'] -> id) }}" enctype="multipart/form-data">
@@ -59,3 +56,27 @@
 @endif
 </div>
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">@lang('messages.deletePet')</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @lang('messages.deletePetConfirm')
+      </div>
+      <div class="modal-footer">
+        <form method="POST" action="{{ route('animal.erase', $data['animal'] -> id) }}">
+            @csrf
+            <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
+            <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deletePet')"/>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

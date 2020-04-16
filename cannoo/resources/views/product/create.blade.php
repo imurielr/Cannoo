@@ -31,7 +31,7 @@
                         <input placeholder="@lang('messages.price_form')" name="price" value="{{ old('price') }}" />
                         <!-- <input type="text" placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}" /> -->
                         <br/><br/>
-                        <textarea placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}"></textarea>
+                        <textarea placeholder="@lang('messages.description_form')" name="description" value="{{ old('description') }}" rows="4" cols="50"></textarea>
                         <br/><br/>
                         <div class="form-group">
                             <label>@lang('messages.image'):</label>
