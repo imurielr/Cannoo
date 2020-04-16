@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
+use Lang;
 
 class ContactController extends Controller {
 
@@ -20,12 +21,12 @@ class ContactController extends Controller {
     public function save(Request $request) {
         Message::validate($request);
         $product = Message::create($request->only(["client","subject","message"]));
-        return back()->with('success','Message sent succesfully!');
+        return back()->with('success',Lang::get('messages.mess'));
     }
 
     public function get() {
         $data = []; //to be sent to the view
-        $data["title"] = "Messages";
+        $data["title"] = Lang::get('messages.messages');
         $data["messages"] = Message::orderBy('created_at', 'desc')->get();
         return view('contact.messages')->with("data",$data);
     }
