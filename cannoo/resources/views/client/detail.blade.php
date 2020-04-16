@@ -31,14 +31,8 @@
                     <td>{{ $client->getAddress()}}</td>
                     <td>{{ $client->getPhone()}}</td>  
                     <td>
-                        <form method=POST action="{{ route('client.delete', $client->getId()) }}">
-                            @csrf
-                            <input class="btn btn-danger" type="submit" value="@lang('messages.deleteClient')"/>
-                        </form>
-                        <form method=POST action="{{ route('client.makeAdmin', $client->getId()) }}"> <br/>
-                            @csrf
-                            <input class="btn btn-info" type="submit" value="@lang('messages.makeAdmin')"/>
-                        </form>
+                        <input class="btn btn-danger" type="submit" data-toggle="modal" data-target="#deleteModal" value="@lang('messages.deleteClient')"/>
+                        <input class="btn btn-info" type="submit" data-toggle="modal" data-target="#adminModal" value="@lang('messages.makeAdmin')"/>
                     </td>
                 </tr>
             </tbody>
@@ -46,3 +40,51 @@
     </div>
 </div>
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">@lang('messages.deleteClient')</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @lang('messages.deleteClientConfirm')
+      </div>
+      <div class="modal-footer">
+        <form method=POST action="{{ route('client.delete', $client->getId()) }}">
+            @csrf
+            <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
+            <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteClient')"/>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adminModalLabel">@lang('messages.makeAdmin')</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @lang('messages.makeAdminConfirm')
+      </div>
+      <div class="modal-footer">
+        <form method=POST action="{{ route('client.makeAdmin', $client->getId()) }}"> <br/>
+            @csrf
+            <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
+            <input class="btn btn-info float-right" type="submit" value="@lang('messages.makeAdmin')"/>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

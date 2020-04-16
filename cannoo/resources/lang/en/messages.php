@@ -110,4 +110,11 @@
         'image' => 'Image',
         'shoppingCart' => 'View shopping cart',
         'home' => 'Home',
+        'cancel' => 'cancel',
+        'deletePetConfirm' => 'Are you sure you want to delete this pet?',
+        'deleteProductConfirm' => 'Are you sure you want to delete this product?',
+        'deleteClientConfirm' => 'Are you sure you want to delete this client?',
+        'makeAdminConfirm' => 'Are you sure you want this client to be admin?',
+        'deleteMsgConfirm' => 'Are you sure you want to delete this message?',
+        'deleteCertConfirm' => 'Are you sure you want to delete this certificate?',
     ];

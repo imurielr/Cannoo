@@ -18,15 +18,12 @@
                         <b>@lang('messages.animal'):</b> {{ $certificate ->getAnimal()}}<br />
                         <b>@lang('messages.date'):</b> {{ $certificate->getDate()}}<br />
                         @if($certificate->getVerified()==1)
-                        <b>@lang('messages.verified'):</b> @lang('messages.yes')<br />
+                            <b>@lang('messages.verified'):</b> @lang('messages.yes')<br />
                         @else
-                        <b>@lang('messages.verified'):</b> @lang('messages.no')<br />
+                            <b>@lang('messages.verified'):</b> @lang('messages.no')<br />
                         @endif 
                         @if (Auth::user()->role == 'admin')
-                        <form method=POST action="{{ route('certificate.delete', $certificate->getId()) }}">
-                            @csrf
-                            <input class="btn btn-danger" type="submit" value="@lang('messages.deleteCertificate')"/>
-                        </form>
+                            <input class="btn btn-danger" type="submit" data-toggle="modal" data-target="#deleteModal" value="@lang('messages.deleteCertificate')"/>
                         @endif
                     </div>
             </div>
@@ -36,3 +33,27 @@
     @endforeach
 </div>
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">@lang('messages.deleteCertificate')</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @lang('messages.deleteCertConfirm')
+      </div>
+      <div class="modal-footer">
+        <form method=POST action="{{ route('certificate.delete', $certificate->getId()) }}">
+            @csrf
+            <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
+            <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteCertificate')"/>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

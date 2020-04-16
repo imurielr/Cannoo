@@ -110,4 +110,11 @@
         'image' => 'Imagen',
         'shoppingCart' => 'Ver carrito de compras',
         'home' => 'Inicio',
+        'cancel' => 'Cancelar',
+        'deletePetConfirm' => '¿Seguro que desea eliminar esta mascota?',
+        'deleteProductConfirm' => '¿Seguro que desea eliminar este producto?',
+        'deleteClientConfirm' => '¿Seguro que desea eliminar este cliente?',
+        'makeAdminConfirm' => '¿Seguro que desea que este cliente sea administrador?',
+        'deleteMsgConfirm' => '¿Seguro que desea eliminar este mensaje?',
+        'deleteCertConfirm' => '¿Seguro que desea eliminar este certificado?',
     ];
