@@ -4,6 +4,12 @@
 
 @section('content')
 <div class="container">
+
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <span class="breadcrumb-item active">@lang('messages.addPet')</span>
+    </nav>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
         @include('util.message')

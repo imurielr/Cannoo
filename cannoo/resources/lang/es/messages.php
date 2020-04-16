@@ -109,4 +109,5 @@
         'welcome_sub' => 'Somos una empresa dedicada a unir animales con sus futuros dueños',
         'image' => 'Imagen',
         'shoppingCart' => 'Ver carrito de compras',
+        'home' => 'Inicio',
     ];
