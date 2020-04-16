@@ -4,12 +4,13 @@
 
 @section('content')
 <div class="container">
-    <a class="btn btn-info" href="{{ route('product.show') }}">
-        @lang('messages.showProducts')
-    </a>
-</div>
 
-<div class="container">
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <a class="breadcrumb-item" href="{{ route('product.show') }}">@lang('messages.products')</a>
+        <span class="breadcrumb-item active">@lang('messages.product') {{$data["product"]->getType()}}</span>
+    </nav>
+    
     <div class="row p-5">
         <div class="col-md-12">
             <ul id="errors">

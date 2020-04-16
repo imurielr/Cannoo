@@ -109,4 +109,5 @@
         'welcome_sub' => 'Our goal is to unite animals with their future owners',
         'image' => 'Image',
         'shoppingCart' => 'View shopping cart',
+        'home' => 'Home',
     ];

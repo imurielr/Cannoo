@@ -4,6 +4,12 @@
 @section('content')
 <link rel="stylesheet" href="{{ URL::asset('css/customStyles.css') }}">
 <div class="container">
+
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <span class="breadcrumb-item active">@lang('messages.pets')</span>
+    </nav>
+
     <div class="row justify-content-center">
     @foreach($data["animal"] as $indexKey => $pet)
         @if((Auth::user()->role == 'admin') or (!$pet->getAdopted() and Auth::user()->role == 'client') )

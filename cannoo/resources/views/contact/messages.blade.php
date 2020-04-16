@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-    <a class="btn btn-info" href="{{ route('client.show') }}">
-        @lang('messages.showClients')
-    </a>
-</div>
-<br/>
+
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <span class="breadcrumb-item active">@lang('messages.messages')</span>
+    </nav>
 
 <div class="container">
     <div>

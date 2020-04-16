@@ -4,6 +4,11 @@
 @section('content')
 <link rel="stylesheet" href="{{ URL::asset('css/customStyles.css') }}">
 <div class="container">
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <span class="breadcrumb-item active">@lang('messages.top5') @lang('messages.animals')</span>
+    </nav>
+
     <div class="row justify-content-center">
     @foreach($data["animals"] as $indexKey => $pet)
 

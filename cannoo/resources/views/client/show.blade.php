@@ -4,6 +4,12 @@
 
 
 <div class="container">
+
+    <nav class="breadcrumb" style="background-color: white;">
+        <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
+        <span class="breadcrumb-item active">@lang('messages.clients')</span>
+    </nav>
+
     <div class="row justify-content-center">
         <table class="table table-hover">
             <thead>
