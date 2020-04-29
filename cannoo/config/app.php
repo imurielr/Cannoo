@@ -177,6 +177,8 @@ return [
         /* my providers */
         App\Providers\ImageServiceProvider::class,
 
+        Bioudi\LaravelMetaWeatherApi\WeatherserviceProvider::class,
+
 
     ],
 
