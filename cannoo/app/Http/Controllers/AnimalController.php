@@ -21,6 +21,7 @@ class AnimalController extends Controller {
         $data = []; //to be sent to the view
         $data["title"] = Lang::get('messages.showPet');
         $data["animal"] = Animal::findOrFail($id);
+        
         return view('animal.pet')->with("data",$data);
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27c4fd30cffee8bc43da517353f937ee",
+    "content-hash": "5a4f6b0141f9cf8af9d31f202bce4de5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -209,6 +209,42 @@
                 "laravel"
             ],
             "time": "2020-03-11T21:05:07+00:00"
+        },
+        {
+            "name": "bioudi/laravel-meta-weather-api",
+            "version": "v0.1.2-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bioudi/laravel-meta-weather-api.git",
+                "reference": "61851bb2b732fd893e0509b599ad7d86ed0e58c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bioudi/laravel-meta-weather-api/zipball/61851bb2b732fd893e0509b599ad7d86ed0e58c5",
+                "reference": "61851bb2b732fd893e0509b599ad7d86ed0e58c5",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bioudi\\LaravelMetaWeatherApi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bioudi Mohamed Amine",
+                    "email": "bioudiamine@gmail.com"
+                }
+            ],
+            "description": "🌦 Simple laravel package Consume the MetaWeather API.",
+            "time": "2019-08-25T00:00:28+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -5877,7 +5913,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "bioudi/laravel-meta-weather-api": 15
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
