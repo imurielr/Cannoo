@@ -247,42 +247,6 @@
             "time": "2019-08-25T00:00:28+00:00"
         },
         {
-            "name": "bioudi/laravel-meta-weather-api",
-            "version": "v0.1.2-alpha",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bioudi/laravel-meta-weather-api.git",
-                "reference": "61851bb2b732fd893e0509b599ad7d86ed0e58c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bioudi/laravel-meta-weather-api/zipball/61851bb2b732fd893e0509b599ad7d86ed0e58c5",
-                "reference": "61851bb2b732fd893e0509b599ad7d86ed0e58c5",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Bioudi\\LaravelMetaWeatherApi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bioudi Mohamed Amine",
-                    "email": "bioudiamine@gmail.com"
-                }
-            ],
-            "description": "🌦 Simple laravel package Consume the MetaWeather API.",
-            "time": "2019-08-25T00:00:28+00:00"
-        },
-        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
             "source": {
