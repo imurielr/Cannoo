@@ -54,8 +54,8 @@ class Item extends Model{
         $this->attributes['quantity'] = $quantity;
     }
 
-    public function incrementQuantity(){
-        $this->attributes['quantity'] = $this->attributes['quantity'] + 1;
+    public function incrementQuantity($quantity){
+        $this->attributes['quantity'] = $this->attributes['quantity'] + $quantity;
     }
 
     public function reduceQuantity(){

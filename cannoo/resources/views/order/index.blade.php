@@ -44,6 +44,7 @@
                 <td scope="row">{{ ($item -> getProductAux() -> getPrice()) }}</td>
                 <td scope="row">{{ ($item -> getTotalPriceAux() ) }}</td>
                 <td><a class="btn btn-warning" href="{{ route('item.delete', $item -> getProductAux() -> getId()) }}">@lang('messages.deleteProduct')</a></td>
+                <td><a class="btn btn-danger" href="{{ route('item.deleteAll', $item -> getProductAux() -> getId()) }}">@lang('messages.deleteAllProducts')</a></td>
             <tr>
             @endforeach
             <tr>

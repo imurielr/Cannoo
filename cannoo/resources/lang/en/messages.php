@@ -123,4 +123,5 @@
         'makeAdminConfirm' => 'Are you sure you want this client to be admin?',
         'deleteMsgConfirm' => 'Are you sure you want to delete this message?',
         'deleteCertConfirm' => 'Are you sure you want to delete this certificate?',
+        'deleteAllProducts' => 'Delete all',
     ];
