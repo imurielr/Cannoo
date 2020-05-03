@@ -5,6 +5,7 @@
 @section('content')
 <div class="container">
 
+    @include('util.message')
     <nav class="breadcrumb" style="background-color: white;">
         <a class="breadcrumb-item" href="{{ route('home.index') }}">@lang('messages.home')</a>
         <a class="breadcrumb-item" href="{{ route('product.show') }}">@lang('messages.products')</a>
@@ -31,7 +32,7 @@
                                 <input class="btn btn-info float-right" type="submit" value="@lang('messages.changeDescription')" style="margin-right:5px;"/>
                             </form>
                         @else
-                            <a class="btn btn-info float-right" href="{{ route('item.create', $data['product']->getId()) }}">@lang('messages.addToOrder')</a>
+                            <input class="btn btn-info float-right" type="submit" data-toggle="modal" data-target="#itemModal" value="@lang('messages.addToOrder')"/> 
                             <form method="POST" action="{{ route('product.like',$data['product']->getId()) }}" enctype="multipart/form-data">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-primary">@lang('messages.like')</button>
@@ -66,6 +67,27 @@
             <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
             <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteProduct')"/>
         </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="itemModalLabel">@lang('messages.addToOrder'): {{$data['product']->getType()}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{route('item.create', $data['product']->getId())}}" enctype="multipart/form-data">
+            @csrf
+            @lang('messages.quantity'): <input type="number" name="quantity" min="1" required value="1"/>
+            <input class="btn btn-info float-right" type="submit" value="@lang('messages.addToOrder')" />
+        </form>
       </div>
     </div>
   </div>

@@ -123,4 +123,5 @@
         'makeAdminConfirm' => '¿Seguro que desea que este cliente sea administrador?',
         'deleteMsgConfirm' => '¿Seguro que desea eliminar este mensaje?',
         'deleteCertConfirm' => '¿Seguro que desea eliminar este certificado?',
+        'deleteAllProducts' => 'Eliminar todos',
     ];
