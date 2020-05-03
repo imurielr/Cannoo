@@ -123,4 +123,7 @@
         'makeAdminConfirm' => 'Are you sure you want this client to be admin?',
         'deleteMsgConfirm' => 'Are you sure you want to delete this message?',
         'deleteCertConfirm' => 'Are you sure you want to delete this certificate?',
+        'temp' => 'Temperature range ',
+        'apt' => 'Your location is suitable to adopt this pet',
+        'no_apt' => 'Due to your location you are not suitable to adopt this pet'
     ];

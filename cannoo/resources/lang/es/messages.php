@@ -123,4 +123,7 @@
         'makeAdminConfirm' => '¿Seguro que desea que este cliente sea administrador?',
         'deleteMsgConfirm' => '¿Seguro que desea eliminar este mensaje?',
         'deleteCertConfirm' => '¿Seguro que desea eliminar este certificado?',
+        'temp' => 'Rango de temperatura ',
+        'apt' => 'Su residencia es apta para adoptar esta mascota',
+        'no_apt' => 'Debido a su ubicación usted no es apto para adoptar esta mascota'
     ];
