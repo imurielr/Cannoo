@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model {
     //attributes id, type, breed, birthDate, vaccinated, certificate, order_id, created_at, updated_at, adopted, likes
-    protected $fillable = ['type','breed','birthDate','vaccinated','adopted','likes','order_id'];
+    protected $fillable = ['type','breed','birthDate','vaccinated','adopted','likes','order_id','min','max'];
 
     public function getId() {
         return $this->attributes['id'];
@@ -90,6 +90,22 @@ class Animal extends Model {
 
     public function addLike() {
         $this->attributes['likes'] = $likes+1;
+    }
+
+    public function getMin() {
+        return $this->attributes['min'];
+    }
+
+    public function setMin($min) {
+        $this->attributes['min'] = $min;
+    }
+
+    public function getMax() {
+        return $this->attributes['max'];
+    }
+
+    public function setMax($max) {
+        $this->attributes['max'] = $max;
     }
 
 

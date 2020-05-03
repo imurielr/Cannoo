@@ -124,4 +124,7 @@
         'deleteMsgConfirm' => '¿Seguro que desea eliminar este mensaje?',
         'deleteCertConfirm' => '¿Seguro que desea eliminar este certificado?',
         'deleteAllProducts' => 'Eliminar todos',
+        'temp' => 'Rango de temperatura ',
+        'apt' => 'Su residencia es apta para adoptar esta mascota',
+        'no_apt' => 'Debido a su ubicación usted no es apto para adoptar esta mascota'
     ];
