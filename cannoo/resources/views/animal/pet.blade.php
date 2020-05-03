@@ -37,8 +37,8 @@
                         <p style="color:red;">{{$data['available']}}</p>
                       @endif
                     @endif
-                    @if (Auth::user()->role == 'admin')
-                        <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal"/>@lang('messages.deletePet')<button/>
+                    @if (Auth::user()->role == 'admin')                            
+                        <input class="btn btn-danger float-right" type="submit" data-toggle="modal" data-target="#deleteModal" value="@lang('messages.deletePet')"/> 
                     @else
                         <a class="btn btn-info float-right" href="{{ route('animal.order', $data['animal'] -> id) }}">@lang('messages.addToOrder')</a>
                         <form method="POST" action="{{ route('animal.like',$data['animal'] -> id) }}" enctype="multipart/form-data">
