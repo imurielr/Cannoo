@@ -126,5 +126,13 @@
         'deleteAllProducts' => 'Delete all',
         'temp' => 'Temperature range ',
         'apt' => 'Your location is suitable to adopt this pet',
-        'no_apt' => 'Due to your location you are not suitable to adopt this pet'
+        'no_apt' => 'Due to your location you are not suitable to adopt this pet',
+        'city' => 'City',
+        'bog' => 'Bogotá',
+        'lon' => 'London',
+        'syd' => 'Sydney',
+        'mad' => 'Madrid',
+        'temp1' => 'The tempeature at your city',
+        'temp2' => 'is',
+        'temp3' => '°C according to MetaWeather'
     ];

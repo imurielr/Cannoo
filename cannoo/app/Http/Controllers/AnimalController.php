@@ -9,6 +9,7 @@ use App\Certificate;
 use Lang;
 use Bioudi\LaravelMetaWeatherApi\Weather;
 
+
 class AnimalController extends Controller {
     
     public function show() {
@@ -24,7 +25,8 @@ class AnimalController extends Controller {
         $data["animal"] = Animal::findOrFail($id);
         
         $weather = new Weather();
-        $temp = $weather->getByCityName('bogotá');
+        $city = \Auth::user()->city;
+        $temp = $weather->getByCityName( $city );
 
         if(is_string($temp)){
             $data["indicator"] = 0;
@@ -33,12 +35,22 @@ class AnimalController extends Controller {
             if( $data["animal"]->getMin() < $t and $t < $data["animal"]->getMax() ){
                 $data["indicator"] = 1;
                 $data["available"] = Lang::get('messages.apt') ;
+                $data["temp"] = $t;
             }else{
                 $data["indicator"] = 2;
                 $data["available"] = Lang::get('messages.no_apt');
+                $data["temp"] = $t;
             }
-            
         }
+
+        $cities = array(
+            'bogotá' => Lang::get('messages.bog'),
+            'sydney' => Lang::get('messages.syd'),
+            'london' => Lang::get('messages.lon'),
+            'madrid' => Lang::get('messages.mad'),
+        );
+
+        $data['city'] = $cities[$city];
         return view('animal.pet')->with("data",$data);
     }
 
