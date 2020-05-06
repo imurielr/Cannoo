@@ -30,7 +30,7 @@
                     <b>@lang('messages.vaccinated'):</b> @lang('messages.no')<br />
                     @endif
                     <b>@lang('messages.temp'):</b> {{ $data["animal"]->getMin()}} °C - {{ $data["animal"]->getMax()}} °C<br />
-                    @lang('messages.temp1') {{$data['city']}} @lang('messages.temp2') {{$data['temp']}} @lang('messages.temp3')
+                    
                     @if( $data["indicator"] > 0)
                       @if( $data["indicator"] == 1)
                         <b><p style="color:green;">{{$data['available']}}</p></b>
