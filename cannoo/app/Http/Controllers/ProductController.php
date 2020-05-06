@@ -10,7 +10,8 @@
     class ProductController extends Controller {
 
         public function create() {
-            return view('product.create');
+            $data["title"] = Lang::get('messages.createProduct');
+            return view('product.create')->with('data', $data);
         }
 
         public function save(Request $request) {

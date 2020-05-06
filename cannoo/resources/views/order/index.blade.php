@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
+@section("title", $data["title"])
+
 @section('content')
+
 @include('util.message')
 
 <div class="container">

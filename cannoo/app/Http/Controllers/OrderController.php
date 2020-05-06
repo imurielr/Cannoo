@@ -11,6 +11,7 @@ use Lang;
 
 class OrderController extends Controller{
     public function index(Request $request){
+        $data["title"] = Lang::get('messages.cart');
         $data["animals"] = $this->getAnimals($request);
         $data["items"] = $this->getItems($request);
         $total =0;
@@ -90,7 +91,7 @@ class OrderController extends Controller{
         $data = [];
         $order = Order::findOrFail($id);
 
-        $data["title"] = "Order";
+        $data["title"] = Lang::get('messages.order');
         $data["order"] = $order;
         $data["animals"] = Animal::where('order_id', $id)->get();
         $data["items"] = Item::where('order_id', $id)->with('product')->get();
@@ -101,7 +102,7 @@ class OrderController extends Controller{
     public function show(){
         $client = auth()->user()->getId();
 
-        $data["title"] = "Orders";
+        $data["title"] = Lang::get('messages.orders');
         $data["orders"] = Order::where('client', $client)->orderBy('created_at')->get();
         return view('order.show')->with("data", $data);
     }

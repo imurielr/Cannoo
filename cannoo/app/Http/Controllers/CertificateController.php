@@ -19,6 +19,7 @@ class CertificateController extends Controller {
 
     public function create() {
         $data=[];
+        $data["title"] = Lang::get('messages.createCert');
         $data['clients'] = User::where('role', 'client')->get();;
         $data['animals'] = Animal::all();
         return view('certificate.create')->with('data',$data);
