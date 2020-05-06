@@ -30,12 +30,18 @@
                     <input type="text" placeholder="@lang('messages.breed_form')" name="breed" value="{{ old('breed') }}" /> <br/> <br/>
                     <label for="date">@lang('messages.birth'):</label><br/>
                     <input type="date" placeholder="@lang('messages.birth_form')" name="birthDate" value="{{ old('birthDate') }}" /> <br/> <br/>
+                    <label >@lang('messages.temp'):</label>
+                    <input type="number"  name="min" style="width: 50px"value="{{ old('min') }}" /> 
+                    <label >°C - </label>
+                    <input type="number"  name="max" style="width: 50px"value="{{ old('max') }}" /> <label >°C</label> <br/> <br/>
                     <input type="checkbox" name="vaccinated" value="vacccinated">
                     <label for="vaccinated"> @lang('messages.vaccinated')</label><br> <br/> 
                     <div class="form-group">
                         <label>@lang('messages.image'):</label>
                         <input type="file" name="image"  accept="image/png, image/jpeg"/>
                     </div>
+                    
+
                     <input type="submit" value="@lang('messages.send')" />
                 </form>
 

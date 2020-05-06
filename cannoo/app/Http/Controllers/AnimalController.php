@@ -7,6 +7,8 @@ use App\Interfaces\ImageStorage;
 use App\Animal;
 use App\Certificate;
 use Lang;
+use Bioudi\LaravelMetaWeatherApi\Weather;
+
 
 class AnimalController extends Controller {
     
@@ -21,6 +23,34 @@ class AnimalController extends Controller {
         $data = []; //to be sent to the view
         $data["title"] = Lang::get('messages.showPet');
         $data["animal"] = Animal::findOrFail($id);
+        
+        $weather = new Weather();
+        $city = \Auth::user()->city;
+        $temp = $weather->getByCityName( $city );
+
+        if(is_string($temp)){
+            $data["indicator"] = 0;
+        }else{
+            $t = (float) $temp->consolidated_weather[0]->the_temp;
+            if( $data["animal"]->getMin() < $t and $t < $data["animal"]->getMax() ){
+                $data["indicator"] = 1;
+                $data["available"] = Lang::get('messages.apt') ;
+                $data["temp"] = $t;
+            }else{
+                $data["indicator"] = 2;
+                $data["available"] = Lang::get('messages.no_apt');
+                $data["temp"] = $t;
+            }
+        }
+
+        $cities = array(
+            'bogotá' => Lang::get('messages.bog'),
+            'sydney' => Lang::get('messages.syd'),
+            'london' => Lang::get('messages.lon'),
+            'madrid' => Lang::get('messages.mad'),
+        );
+
+        $data['city'] = $cities[$city];
         return view('animal.pet')->with("data",$data);
     }
 
@@ -34,7 +64,7 @@ class AnimalController extends Controller {
 
     public function save(Request $request) {
         Animal::validate($request);
-        $animal = Animal::create($request->only(["type","breed","birthDate","vaccinated","adopted"]));
+        $animal = Animal::create($request->only(["type","breed","birthDate","vaccinated","adopted","min","max"]));
 
         $storeInterface = app(ImageStorage::class);
         $storeInterface->store($request, "animal", $animal->getId());

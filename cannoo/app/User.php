@@ -15,7 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'role', 'phone', 'address'];
+    protected $fillable = ['name', 'email', 'password', 'role', 'phone', 'address', 'city'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -84,5 +84,13 @@ class User extends Authenticatable
 
     public function setAddress($address) {
         $this->attributes['address'] = $address;
+    }
+
+    public function getCity() {
+        return $this->attributes['city'];
+    }
+
+    public function setCity($city) {
+        $this->attributes['city'] = $city;
     }
 }

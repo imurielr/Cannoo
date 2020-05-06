@@ -18,7 +18,8 @@
             <div class="card">
                 <div class="card-header">{{ $data["animal"]->getType() }}</div>
                 <div class="card-body">
-                    <img width="40%" height="40%" src="{{ URL::to('/') }}/storage/uploads/animal/{{$data['animal']->getId() }}.png"><br />
+                    <img width="40%" src="{{ URL::to('/') }}/storage/uploads/animal/{{$data['animal']->getId()}}.png">
+                    <br/><br/>
                     <b>Id:</b> {{ $data["animal"]->getId() }}<br />
                     <b>@lang('messages.type'):</b> {{ $data["animal"]->getType()}}<br />
                     <b>@lang('messages.breed'):</b> {{ $data["animal"]->getBreed() }}<br />
@@ -28,11 +29,22 @@
                     @else
                     <b>@lang('messages.vaccinated'):</b> @lang('messages.no')<br />
                     @endif
-
-                    @if (Auth::user()->role == 'admin')
-                        <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal"/>@lang('messages.deletePet')<button/>
+                    <b>@lang('messages.temp'):</b> {{ $data["animal"]->getMin()}} °C - {{ $data["animal"]->getMax()}} °C<br />
+                    @lang('messages.temp1') {{$data['city']}} @lang('messages.temp2') {{$data['temp']}} @lang('messages.temp3')
+                    @if( $data["indicator"] > 0)
+                      @if( $data["indicator"] == 1)
+                        <b><p style="color:green;">{{$data['available']}}</p></b>
+                      @else
+                        <p style="color:red;">{{$data['available']}}</p>
+                      @endif
+                      
+                    @endif
+                    @if (Auth::user()->role == 'admin')                            
+                        <input class="btn btn-danger float-right" type="submit" data-toggle="modal" data-target="#deleteModal" value="@lang('messages.deletePet')"/> 
                     @else
+                        @if( $data["indicator"] < 2)
                         <a class="btn btn-info float-right" href="{{ route('animal.order', $data['animal'] -> id) }}">@lang('messages.addToOrder')</a>
+                        @endif
                         <form method="POST" action="{{ route('animal.like',$data['animal'] -> id) }}" enctype="multipart/form-data">
                             @csrf
                             <button type="submit" class="btn btn-outline-primary">@lang('messages.like')</button>

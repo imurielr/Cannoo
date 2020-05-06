@@ -124,4 +124,15 @@
         'deleteMsgConfirm' => '¿Seguro que desea eliminar este mensaje?',
         'deleteCertConfirm' => '¿Seguro que desea eliminar este certificado?',
         'deleteAllProducts' => 'Eliminar todos',
+        'temp' => 'Rango de temperatura ',
+        'apt' => 'Su residencia es apta para adoptar esta mascota',
+        'no_apt' => 'Debido a su ubicación usted no es apto para adoptar esta mascota',
+        'city' => 'Ciudad',
+        'bog' => 'Bogotá',
+        'lon' => 'Londres',
+        'syd' => 'Sydney',
+        'mad' => 'Madrid',
+        'temp1' => 'La temperatura en la ciudad de',
+        'temp2' => 'es',
+        'temp3' => '°C de acuerdo con MetaWeather'
     ];

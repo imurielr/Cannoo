@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Lang;
 
 class ClientController extends Controller{
     public function index(){
@@ -10,8 +11,10 @@ class ClientController extends Controller{
     }
 
     public function showAll(){
+        $data = []; //to be sent to the view
+        $data["title"] = Lang::get('messages.clients');
         $clients = User::where('role', 'client')->get();
-        return view('client.show', ['clients' => $clients]);
+        return view('client.show', ['clients' => $clients])->with('data',$data);
     }
 
     public function showClient($id){

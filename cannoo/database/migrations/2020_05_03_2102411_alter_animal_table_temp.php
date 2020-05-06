@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRolesToUsersTable extends Migration
+class AlterAnimalTableTemp extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddRolesToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('animals', function (Blueprint $table) {
-            $table->text('role')->nullable();
-        });
+            Schema::table('animals', function (Blueprint $table) {
+                $table->integer('min');
+                $table->integer('max');
+            });
     }
+    
 
     /**
      * Reverse the migrations.
@@ -25,8 +27,10 @@ class AddRolesToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
+        Schema::table('animals', function (Blueprint $table) {
+            $table->dropColumn('min');
+            $table->dropColumn('max');
         });
+        //
     }
 }
