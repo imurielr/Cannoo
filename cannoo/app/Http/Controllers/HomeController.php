@@ -54,6 +54,8 @@ class HomeController extends Controller {
             \Session::put('city',"");
         }
         
-        return view('home.index');
+        $data["title"] = Lang::get('messages.home');
+
+        return view('home.index')->with("data", $data);
     }
 }

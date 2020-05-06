@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section("title", $data["title"])
+
 @section('content')
 <div class="container">
 
@@ -29,36 +31,35 @@
                     <td>{{ $message->getSubject() }}</td>
                     <td>{{ $message->getMessage()}}</td>
                     <td>
-                        <input class="btn btn-danger" type="submit" data-toggle="modal" data-target="#deleteModal" value="@lang('messages.deleteMessage')"/>
+                        <input class="btn btn-danger" type="submit" data-toggle="modal" data-target="#deleteModal{{$message->getId()}}" value="@lang('messages.deleteMessage')"/>
                     </td>
                 </tr>
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal{{$message->getId()}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">@lang('messages.deleteMessage')</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        @lang('messages.deleteMsgConfirm')
+                      </div>
+                      <div class="modal-footer">
+                        <form method=POST action="{{ route('contact.delete', $message->getId()) }}">
+                            @csrf
+                            <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
+                            <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteMessage')"/>
+                        </form> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 @endforeach
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">@lang('messages.deleteMessage')</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        @lang('messages.deleteMsgConfirm')
-      </div>
-      <div class="modal-footer">
-        <form method=POST action="{{ route('contact.delete', $message->getId()) }}">
-            @csrf
-            <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
-            <input class="btn btn-danger float-right" type="submit" value="@lang('messages.deleteMessage')"/>
-        </form> 
-      </div>
-    </div>
-  </div>
-</div>

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', $client->getName())
+
 @section('content')
 
 <div class="container">

@@ -134,5 +134,8 @@
         'mad' => 'Madrid',
         'temp1' => 'The tempeature at your city',
         'temp2' => 'is',
-        'temp3' => '°C according to MetaWeather'
+        'temp3' => '°C according to MetaWeather',
+        'order' => 'Order',
+        'orders' => 'Orders',
+        'cart' => 'Shopping Cart',
     ];

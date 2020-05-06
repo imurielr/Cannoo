@@ -15,7 +15,8 @@ class ContactController extends Controller {
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-        return view('contact.index');
+        $data["title"] = Lang::get('messages.contact');
+        return view('contact.index')->with("data", $data);
     }
 
     public function save(Request $request) {

@@ -134,5 +134,8 @@
         'mad' => 'Madrid',
         'temp1' => 'La temperatura en la ciudad de',
         'temp2' => 'es',
-        'temp3' => '°C de acuerdo con MetaWeather'
+        'temp3' => '°C de acuerdo con MetaWeather',
+        'order' => 'Orden',
+        'orders' => 'Ordenes',
+        'cart' => 'Carrito de compras',
     ];
