@@ -101,9 +101,9 @@
                                 <a class="dropdown-item" href="{{ route('top5.animals') }}">@lang('messages.animals')</a>
                                 <a class="dropdown-item" href="{{ route('top5.products') }}">@lang('messages.products')</a>
                             </li>
-                            
-                            <li>
-                                @lang('messages.available') {{ Auth::user()->getCredits() }}
+
+                            <li class="nav-item">
+                                <a class="nav-link disabled" style="color: black;">@lang('messages.available') {{ Auth::user()->getCredits() }}</a>
                             </li>
 
                             <li class="nav-item dropdown">
