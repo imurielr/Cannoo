@@ -27,6 +27,7 @@ Route::post('/certificate/delete/{id}', ['middleware' => ['auth', 'role:admin'],
 Route::get('/client', ['middleware' => ['auth', 'role:admin'], 'uses' => 'ClientController@index'])->name("client.index");
 Route::post('/client/makeAdmin/{id}', ['middleware' => ['auth', 'role:admin'], 'uses' => 'ClientController@makeAdmin'])->name("client.makeAdmin");
 Route::get('/client/show', ['middleware' => ['auth', 'role:admin'], 'uses' => 'ClientController@showAll'])->name("client.show");
+Route::post('/client/addCredits/{id}', ['middleware' => ['auth', 'role:admin'], 'uses' => 'ClientController@addCredits'])->name("client.addCredits");
 Route::get('/client/show/{id}', ['middleware' => ['auth', 'role:admin'], 'uses' => 'ClientController@showClient'])->name("client.showClient");
 Route::post('/client/delete/{id}', ['middleware' => ['auth', 'role:admin'], 'uses' => 'ClientController@delete'])->name("client.delete");
 Route::get('/animal/show', ['middleware' => 'auth', 'uses' => 'AnimalController@show'])->name("animal.show");
