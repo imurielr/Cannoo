@@ -73,8 +73,8 @@
             @csrf
             <select class="form-control" name="payment">
                 <optgroup label='@lang('messages.paymentMethod')'>
-                <option value="Visa">Visa</option>
-                <option value="Mastercard">MasterCard</option>
+                <option value="Cash">@lang('messages.cash')</option>
+                <option value="Cannoos">Cannoos</option>
             </select>
             <br>
             <button type="submit" class="btn btn-info">@lang('messages.continue')</button>

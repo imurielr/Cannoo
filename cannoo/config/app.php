@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         /* my providers */
         App\Providers\ImageServiceProvider::class,
+        App\Providers\PaymentServiceProvider::class,
 
         Bioudi\LaravelMetaWeatherApi\WeatherserviceProvider::class,
 
