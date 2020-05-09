@@ -1,7 +1,7 @@
 <?php 
 
     return [
-        'available' => 'Available Cannoos',
+        
         'cash' => 'Cash',
         'paymentUnsuccesful' => 'The payment was not succesful. Please check your Cannoos balance or select another payment method',
         'sorry' => 'Sorry :c',

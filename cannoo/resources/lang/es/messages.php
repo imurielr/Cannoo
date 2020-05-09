@@ -1,7 +1,7 @@
 <?php 
 
     return [
-        'available' => 'Cannoos disponibles',
+        
         'cash' => 'Efectivo',
         'paymentUnsuccesful' => 'El pago no fue exitoso. Revise su cantidad de Cannoos o elija otro método de pago',
         'sorry' => 'Lo sentimos :c',
