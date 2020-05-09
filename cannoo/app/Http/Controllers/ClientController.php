@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Lang;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller{
     public function index(){
@@ -30,6 +31,12 @@ class ClientController extends Controller{
 
     public function makeAdmin($id){
         $client = User::where('id',$id)->update(['role' => 'admin']);
+        return redirect()->route('client.show');
+    }
+
+    public function addCredits(Request $request, $id){
+        $client = User::where('id',$id)->first()->addCredits($request["quantity"]);
+        $client->save();
         return redirect()->route('client.show');
     }
 

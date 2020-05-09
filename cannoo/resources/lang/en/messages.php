@@ -1,7 +1,9 @@
 <?php 
 
     return [
-        
+        'add' => 'Add',
+        'addCredits' => 'Add Cannoos',
+        'credits' => 'Cannoos to add',
         'cash' => 'Cash',
         'paymentUnsuccesful' => 'The payment was not succesful. Please check your Cannoos balance or select another payment method',
         'sorry' => 'Sorry :c',

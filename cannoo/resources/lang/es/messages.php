@@ -1,7 +1,9 @@
 <?php 
 
     return [
-        
+        'add' => 'Agregar',
+        'addCredits' => 'Agregar Cannoos',
+        'credits' => 'Cannoos a agregar',
         'cash' => 'Efectivo',
         'paymentUnsuccesful' => 'El pago no fue exitoso. Revise su cantidad de Cannoos o elija otro método de pago',
         'sorry' => 'Lo sentimos :c',
