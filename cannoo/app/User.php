@@ -104,11 +104,10 @@ class User extends Authenticatable
     
     public function addCredits($credits) {
         $this->attributes['credits'] = $this->attributes['credits'] + $credits;
-        return $this->attributes['credits'];
+
     }
 
     public function spendCredits($credits) {
         $this->attributes['credits'] = $this->attributes['credits'] - $credits;
-        return $this->attributes['credits'];
     }
 }

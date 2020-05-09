@@ -35,8 +35,9 @@ class ClientController extends Controller{
     }
 
     public function addCredits(Request $request, $id){
-        $client = User::where('id',$id)->first()->addCredits($request["quantity"]);
-        $client->save();
+        $credits = User::select('credits')->where('id', $id)->get();;
+        $new = ($credits[0]['credits'] + $request["quantity"]);
+        User::where('id',  $id)->update(['credits' => $new ]);
         return redirect()->route('client.show');
     }
 

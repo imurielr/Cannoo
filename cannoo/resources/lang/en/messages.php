@@ -1,6 +1,7 @@
 <?php 
 
     return [
+        'available' => 'Available Cannoos',
         'add' => 'Add',
         'addCredits' => 'Add Cannoos',
         'credits' => 'Cannoos to add',
