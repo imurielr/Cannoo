@@ -101,7 +101,8 @@
                                 <a class="dropdown-item" href="{{ route('top5.animals') }}">@lang('messages.animals')</a>
                                 <a class="dropdown-item" href="{{ route('top5.products') }}">@lang('messages.products')</a>
                             </li>
-                            
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -111,9 +112,12 @@
                                     
                                     <a class="nav-link disabled" > <img src="{{ asset('images/weather.png') }}" style="height:25px;"> {{ Session::get('city') }} {{ Session::get('temp') }} °C</a>
                                     @if (Auth::user()->role != 'admin')
+                                        <a class="nav-link disabled" > <img src="{{ asset('images/coin.png') }}" style="height:25px;"> {{ Auth::user()->getCredits() }} </a>
                                         <a class="dropdown-item" href="{{ route('order.show') }}">@lang('messages.viewOrders')</a>
-                                        <a class="dropdown-item" href="{{ route('order.index') }}">@lang('messages.shoppingCart')</a>
+                                        <a class="dropdown-item" href="{{ route('order.index') }}">@lang('messages.shoppingCart')</a> 
                                     @endif
+                                        
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();" >

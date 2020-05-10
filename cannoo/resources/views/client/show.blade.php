@@ -22,11 +22,8 @@
             <tbody>
                 @foreach($clients as $client)
                     <tr>
-                        @if ($loop->index <= 1)
-                            <td scope="row" style="font-weight:bold">{{ $client -> id }}</td>
-                        @else
-                            <td scope="row">{{ $client -> id }}</td>
-                        @endif
+                        
+                        <td scope="row">{{ $client -> id }}</td>
                         <td>{{ $client -> name }}</td>
                         <td><a class="btn btn-info" href="{{ route('client.showClient', $client -> id) }}">@lang('messages.details')</a></td>
                     </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Item;
 use App\Certificate;
+use App\Interfaces\Payment;
 use App\Animal;
 use Illuminate\Http\Request;
 use Lang;
@@ -57,6 +58,15 @@ class OrderController extends Controller{
         ]);
 
         $order->setTotalPrice($request->query('totalPrice'));
+
+        
+        $paymentInterface = app(Payment::class);
+        $paymentSuccesful = $paymentInterface->pay($request, $total, auth()->user()->getCredits());
+
+        if(!$paymentSuccesful){
+            return back()->with('fail', Lang::get('messages.paymentUnsuccesful'));
+        }
+
         $order->save();
         $id = $order->getId();
         

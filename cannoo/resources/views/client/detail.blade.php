@@ -21,6 +21,7 @@
                     <th scope="col">@lang('messages.email_address')</th>
                     <th scope="col">@lang('messages.address')</th> 
                     <th scope="col">@lang('messages.phone')</th> 
+                    <th scope="col">@lang('messages.available')</th> 
                     <th scope="col">@lang('messages.actions')</th> 
                 </tr>
             </thead>
@@ -32,7 +33,9 @@
                     <td>{{ $client->getEmail() }}</td>
                     <td>{{ $client->getAddress()}}</td>
                     <td>{{ $client->getPhone()}}</td>  
+                    <td>{{ $client->getCredits()}}</td>
                     <td>
+                        <input class="btn btn-info" type="submit" data-toggle="modal" data-target="#addCreditsModal" value="@lang('messages.addCredits')"/>
                         <input class="btn btn-danger" type="submit" data-toggle="modal" data-target="#deleteModal" value="@lang('messages.deleteClient')"/>
                         <input class="btn btn-info" type="submit" data-toggle="modal" data-target="#adminModal" value="@lang('messages.makeAdmin')"/>
                     </td>
@@ -85,6 +88,30 @@
             @csrf
             <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
             <input class="btn btn-info float-right" type="submit" value="@lang('messages.makeAdmin')"/>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addCreditsModal" tabindex="-1" role="dialog" aria-labelledby="addCreditsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">@lang('messages.addCredits')</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">@lang('messages.credits')</div>
+      <div class="modal-footer">
+        <form method=POST action="{{ route('client.addCredits', $client->getId()) }}">
+            @csrf
+            <input type="number" name="quantity" min="1" required value="1"/>
+            <input type="button" class="btn btn-secondary" style="margin-right: 5px;" data-dismiss="modal" value="@lang('messages.cancel')"/>
+            <input class="btn btn-info float-right" type="submit" value="@lang('messages.add')"/>
         </form> 
       </div>
     </div>

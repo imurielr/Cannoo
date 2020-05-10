@@ -93,4 +93,21 @@ class User extends Authenticatable
     public function setCity($city) {
         $this->attributes['city'] = $city;
     }
+
+    public function getCredits() {
+        return $this->attributes['credits'];
+    }
+
+    public function setCredits($credits) {
+        $this->attributes['credits'] = $credits;
+    }
+    
+    public function addCredits($credits) {
+        $this->attributes['credits'] = $this->attributes['credits'] + $credits;
+
+    }
+
+    public function spendCredits($credits) {
+        $this->attributes['credits'] = $this->attributes['credits'] - $credits;
+    }
 }
